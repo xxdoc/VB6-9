@@ -1,0 +1,41 @@
+<p>One of the objects you can work with in VB6 is the Screen object. This will allow you to find information about the current screen configuration, which will in turn allow you to position your forms and other output in the correct position on the users screen, regardless of the current resolution or dpi settings.</p>
+
+<h3>Object</h3>
+<p>You have come across many controls throughout this tutorial. All the controls i.e CommandButton, Label, TextBox are objects. Besides the form is also an object.</p>
+<p>A Collection is an object. If you need a refresher on collections, check out the <a href="https://www.fortypoundhead.com/showcontent.asp?artid=24286" alt="Lesson 54 collections" title="Lesson 54 collections">lesson about collections</a></p>
+<p>Some more examples are Clipboard, Dictionary object, Drive and folder objects, App object,  and printer object. There are many. The Screen object is also an object like them.</p>
+<h3>What is Screen Object?</h3>
+<p>The one line answer: The screen object corresponds to the visible desktop.</p>
+<p>While working with the form's properties, you have set Left, Top, Height and Width properties with a numeric value. Do you know the unit in which they are expressed? They are in twips.</p>
+<p>On the printer, 1 inch = 1,440 twips.</p>
+<h3>Converting twips values into pixels</h3>
+<p>You can easily convert twips values into pixels using the TwipsPerPixelX and TwipsPerPixelY properties of the screen object.</p>
+<p>Your computer screen's resolution:</p>
+<p><pre>sWidth = Screen.Width / Screen.TwipsPerPixelX
+sHeight = Screen.Height / Screen.TwipsPerPixelY
+MsgBox "Resolution is " & sWidth & " X " & sHeight</pre></p>
+<p>This will get you the result in pixels.</p>
+<h3>Properties to know</h3>
+<p>Have a look at some more properties of the Screen Object. </p>
+<h4>MouseIcon</h4>
+<p>The MouseIcon property sets a custom mouse icon.</p>
+<h4>The MousePointer property</h4>
+<p>Changes the mouse pointer. But it applies to the current application only.</p>
+<h5>Example</h5>
+<p><pre>Screen.MousePointer = vbCross</pre></p>
+<h4>FontCount and Font properties</h4>
+<p>The FontCount property gives you the number of fonts for the current display device, and the Fonts property returns the font names.</p>
+<p>The following program shows the font names.</p>
+<p><pre>Dim i As Integer
+For i = 0 To Screen.FontCount - 1
+    Print Screen.Fonts(i)
+Next i</pre></p>
+<h4>The ActiveForm property</h4>
+<p>This property returns the form that is the active window.</p>
+<h4>The ActiveControl property</h4>
+<p>Returns the control that has the focus.</p>
+<p><pre>Text1.SetFocus
+Screen.ActiveForm.Caption = "New Form"
+Screen.ActiveControl.Text = "New text"</pre><p>
+<p>The ActiveForm and ActiveControl properties also only applies to the current application.</p>
+<div class="info"><h3>QuickHint:</h3><p>All the properties except MouseIcon and MousePointer are read-only properties here.</p></div>

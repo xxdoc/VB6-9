@@ -1,0 +1,50 @@
+VB6 Tutorial 17: If ... Then Blocks
+
+<p>There are many control flow blocks in Visual Basic 6 that help in executing some statements in a particular way. This lesson demonstrates the use of If-block. </p>
+
+<p>The If control flow blocks provide a great way for decision making where one or more statements are executed depending upon a condition.</p>
+<h3>If-Then</h3>
+<p>In case of If-Then block, the condition is first checked. The condition can either be True or False. If it is True, the statements inside the If-Then block is executed. Otherwise, it does not execute the code in the If-Then block, the If-Then structure is skipped. It starts executing the statements just after the 'End if' phrase.       </p>
+<h4>Syntax</h4>
+<p><pre>If Condition Then
+      statements
+End If</pre></p>
+<h4>Example</h4> 
+<p>To check if the number is positive.</p>
+<p><pre>Dim num1 As Integer
+num1 = 30
+If num1 > 0 Then
+    Print "The number is positive"
+End If </pre></p>
+<p>output: The number is positive.</p>
+<p>See the attached project <b>IfThen</b> to see this in action.</p>
+<h4>Single Line version of If-Then</h4>
+<p>Single line and single statement </p>
+<p><pre>If a > 0 Then b = 1</pre></p>
+<p>Single line and multiple statements</p>
+<p><pre>If a > 0 Then b = 1: c = 2</pre></p>
+<h3>If-Else </h3>
+<p>An If-Else block has two parts. If the condition is True then the first part is executed, otherwise the control goes to the second part and starts executing the lines of statements in the second part of the If-Else block.</p>
+<h4>Syntax</h4>
+<p><pre>If Condition Then
+    statements1
+Else
+    statements2
+End If</pre></p>
+<p>If Condition is true then statements1 will be executed and if Condition is false, statements2 will be executed. </p>
+<p>See the attached project <b>IfThenElse</b> to see how this block works.</p>
+<h4>Example</h4> 
+<p>To print the largest number.</p>
+<p><pre>Dim num1 As Integer, num2 As Integer
+num1 = 30
+num2 = 50
+If num1 > num2 Then
+    Print num1
+Else
+    Print num2
+End If</pre></p>
+<p>Output: 50</p>
+<p>The attached project <b>LargestNumber</b> allows you to see how If / then / else works with real data.</p>
+<p>Single line version of If-Else</p>
+<p><pre>If a > 0 Then b = 1 Else b = 0</pre></p>
+<p>In the next lesson, you'll learn more about the if-else statements.</p>

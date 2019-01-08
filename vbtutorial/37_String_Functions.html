@@ -1,0 +1,129 @@
+VB6 Tutorial 37: String Functions
+
+<p>There are many useful string functions in Visual Basic 6. The string functions are defined in the "Strings" module, which can be found in the Object Browser.</p>
+
+<h3>Left</h3>
+<p>The Left function extracts characters from the left of the string.</p>
+<h4>Syntax</h4>
+<p><pre>Left(string, n)  </pre></p>
+<p>n is the number of characters to be extracted.</p>
+<h4>Example</h4>
+<p><pre>Print Left("Visual", 3)</pre></p>
+<p>Output: Vis</p>
+<h3>Right</h3>
+<p>The Right function extracts characters from the right of the string.</p>
+<h4>Syntax</h4>
+<p><pre>Right(string, n)</pre></p>
+<p>string is the character string, n is the number of characters to be extracted.</p>
+<h4>Example</h4>
+<p><pre>Print Right("Visual", 3)</pre></p>
+<p>Output: ual</p>
+<h3>Mid</h3>
+<p>Use the the Mid function to extract characters from the middle of the string.</p>
+<h4>Syntax</h4> 
+<p><pre>Mid(string, m, n)</pre></p>
+<p>string is the character string, the extracted string will begin at mth character, n is the number of characters to be extracted.</p>
+<h4>Example</h4>           
+<p><pre>Print Mid("Visual", 3, 2)</pre></p>
+<p>Output: su</p>
+<h3>Len</h3>
+<p>The Len function calculates the number of characters in a string.</p>
+<h4>Example</h4>
+<p><pre>Private Sub cmdCount_Click()
+    Dim str As String
+    str = "Visual Basic"
+    Print Len(str)
+End Sub</pre></p>
+<p>Output: 12</p>
+<h3>InStr</h3>
+<p>The InStr function returns the position of first occurrence of a sub-string contained in a string.</p>
+<h4>Syntax</h4>
+<p><pre>Instr(str1, str2)</pre></p>
+<h4>Example</h4>
+<p><pre>Dim str As String
+str = "Visual Basic"
+Print InStr(str, "Basic")</pre></p>
+<p>Output: 8</p>
+<h3>Chr & Asc</h3>
+<p>The Chr function converts an ASCII value to character and Asc function converts the character to ASCII.</p>
+<h4>Syntax</h4>
+<p><pre>Chr(ASCII value)</pre></p>
+<p><pre>Asc(chr)</pre></p>
+<h4>Example</h4>
+<p><pre>Print Chr(65)</pre></p>
+<p>Output: A</p>
+<h4>Example</h4>
+<p><pre>Print Asc("A")</pre></p>
+<p>Output: 65</p>
+<p>Chr(9) and chr(13) are the Tab and Carriage-return characters respectively.</p>
+<h4>Example</h4>
+<p><pre>Print "Hello" & Chr(9) & "world"</pre></p>
+<p>Output: Hello&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;world</p>
+<p><pre>Print "Hello" & Chr(13) & "world"</pre></p>
+<p>Output: </p>
+<p>Hello<br />
+world</p>
+<h3>Str</h3>
+<p>The Str function returns the string representation of a number.</p>
+<h4>Syntax</h4>
+<p><pre>Str(n) </pre></p>
+<h4>Example</h4>        
+<p><pre>Print str(5) + str(7)</pre></p>
+<p>Output: 57</p>
+<h3>LCase & UCase</h3>
+<p>The LCase function converts an upper case string to lower case and the UCase converts a lower case string to upper case.</p>
+<h4>Example</h4>
+<p><pre>Private Sub cmdChangeCase_Click()
+    Dim s As String
+    s = "HELLO"
+    Print LCase(s)
+End Sub</pre></p>
+<p>Output: hello</p>
+<h4>Example</h4> 
+<p><pre>Dim s As String
+s = "hello"
+Print UCase(s)</pre></p>
+<p>Output: HELLO</p>
+<h3>Trim</h3>
+<p>The Trim function returns a string without leading and trailing spaces.</p>
+<h4>Example</h4>
+<p><pre>Dim s As String
+s = "                      HELLO"
+Print Trim(s)</pre></p>
+<p>Output:<br />HELLO</p>
+<h3>LTrim & RTrim</h3>
+<p>The Ltrim function trims leading spaces and the RTrim function trims trailing spaces from a string.</p>
+<h3>StrReverse</h3>
+<p>The StrReverse function reverses a string.</p>
+<h4>Example</h4>
+<p><pre>Print StrReverse("Basic")</pre></p>
+<p>Output: cisaB</p>
+<h3>Space</h3>
+<p>Space function returns a specific number of spaces.</p>
+<h4>Example</h4>
+<p><pre>Print Space(10) + StrReverse("Basic")</pre></p>
+<p>Output:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Basic</p>
+<h3>StrConv</h3>
+<p>The StrConv function converts the string into a particular case, e.g upper case, lower case and proper case.</p>
+<h4>Example</h4>
+<p><pre>Print StrConv("hello", vbUpperCase)</pre></p>
+<p>Output: HELLO</p>
+<p><pre>Print StrConv("hello", vbProperCase)</pre></p>
+<p>Output: Hello</p>
+<h3>StrComp</h3>
+<p>The StrComp function compares two strings to check whether they match or not. It returns 0, if the two strings match with one another.</p>
+<p><pre>str = StrComp("vb", "vb", vbTextCompare) 'Returns 0
+str = StrComp("vb", "VB", vbTextCompare) 'Returns 0 
+str = StrComp("vb", "VB", vbBinaryCompare) 'Returns 1</pre></p>
+<p>If the optional argument is vbTextCompare then this is a case insensitive comparison, if vbBinaryCompare then it's a case sensitive comparison.</p>
+<h3>Tab</h3>
+<p>The Tab(n) function lets the string be displayed at nth position. </p>
+<h4>Example</h4>
+<p><pre>Print Tab(20) ; "Language"</pre></p>
+<p>Output:
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Language</p>
+<h3>Replace</h3>
+<p>The Replace function finds a sub-string in a string and replaces the sub-string with another.</p>
+<h4>Example</h4>
+<p><pre>newvalue = Replace("months", "s", "1") 'Returns month1</pre></p>

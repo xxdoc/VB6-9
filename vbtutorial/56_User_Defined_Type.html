@@ -1,0 +1,78 @@
+VB6 Tutorial 56: User-Defined Type
+
+<p>The user defined type in Visual Basic 6 is a compound data structure. It holds several variables of different data types. After defining a UDT, you can assign values to the member variables of the UDT.</p>
+
+<h3>Defining the user defined type</h3>
+<p>Before using the UDT in your code, you must first define it using the Type directive in the Declarations section of a module, for example, a form module. The following block of code is called the Type structure.</p>
+<h4>Example</h4>
+<p><pre>Private Type BookDetails       'in Declarations section
+    title As String
+    author As String
+    pages As Long
+End Type</pre></p>
+<p>After defining the UDT variable, declare variables of that type.</p>
+
+<h3>Assigning values</h3>
+<p><pre>Private Sub cmdSetValue_Click()
+    Dim book1 As BookDetails   'Declaring book1 as the type BookDetails
+    'Assigning values
+    book1.author = "Balagurusamy" 
+    book1.title = "C Programming"
+    book1.pages = 600
+End Sub</pre></p>
+
+<h3>With...End with</h3>
+<p>Use "With...End with" structure for the better readability of your code. It eases up the structure.</p>
+
+<h4>Example</h4>
+<p><pre>Dim book1 As BookDetails
+
+With book1
+    .author = "Balagurusamy"
+    .title = "C Programming"
+    .pages = 600
+End With
+
+With book1
+    Print .author, .pages, .title
+End With</pre></p>
+
+<h3>Sub structure of a user defined type</h3>
+<p>The Type structure can also have sub structures. In this case, you have to access the nested structure using the nested "With...End With" structure.</p>
+
+<h4>Example</h4>
+<p><pre>'Sub structure of UDT
+Private Type AddressDetails
+    city As String
+    state As String
+    pin As Long
+    ph_no As String
+End Type
+
+Private Type StudentDetails
+    name As String
+    stream As String
+    DepartmentId As String
+    address As AddressDetails
+End Type
+
+Private Sub cmdSetDetails_Click()
+    Dim student1 As StudentDetails
+
+    'Nested With...End With structure
+    With student1
+        .name = "XYZ"
+        .stream = "Computer Science"
+        .DepartmentId = "C900"
+        MsgBox .name & vbTab & .stream & vbTab & .DepartmentId
+        With .address
+            .city = "London"
+            .state = "abc gdf"
+            .pin = 77764
+            .ph_no = "998765432"
+            MsgBox .city & vbTab & .ph_no & vbTab & .pin & vbTab _
+             & .state
+        End With
+    End With
+
+End Sub</pre></p>

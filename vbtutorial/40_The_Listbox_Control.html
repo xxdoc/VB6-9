@@ -1,0 +1,90 @@
+VB Tutorial 40: The Listbox Control
+
+<p>This lesson shows you how to work with the ListBox control in Visual Basic 6.</p>
+
+<p>The first thing that you may want to do with the ListBox control is to add items or elements to it. You have two options for that. You can either add items in design-time or in run-time. </p>
+<h3>Adding items in design time</h3>
+<p>You can add items to ListBox using the List property.</p>
+<p>Setting properties of the listbox control from the properties window:</p>
+<img src="https://imgur.com/8wbuWCu.jpg" alt="Adding items in design time" title="Adding items in design time" />
+
+<h3>Adding items in run-time</h3>
+<p>You can add items to ListBox using the AddItem method.</p>
+<h4>Example</h4>
+<p><pre>Private Sub Form_Load()
+    List1.AddItem "England"
+End Sub</pre></p>
+<p><b>List1</b> is the name of the listbox.</p>
+<h3>Deleting an item from ListBox</h3>
+<p>You can remove an item using the RemoveItem method. </p>
+<h4>Syntax</h4>
+<p><pre>ListBox.RemoveItem n</pre></p>
+<p>n is the index of an item. The Index starts from 0, so the index of the second item is 1.</p>
+<h4>Example</h4> 
+<p>This program will delete the 1st item from ListBox.</p>
+<p><pre>Private Sub Form_Load()
+    List1.RemoveItem 0
+End Sub</pre></p>
+<h3>Deleting all items</h3>
+<p>The Clear method removes all items from the Listbox.</p>
+<h4>Example</h4> 
+<p><pre>Private Sub Form_Load()
+    List1.Clear
+End Sub</pre></p>
+<h3>Number of items in the ListBox</h3>
+<p>The ListCount property counts items in a ListBox.</p>
+<h4>Example</h4>
+<p><pre>Private Sub Form_Load()
+    Form1.Show
+    Print lstCountry.ListCount
+End Sub</pre></p>
+<h3>Index number of the recently added item</h3>
+<p>The NewIndex property gives the index number which is most recently added using the AddItem method.</p>
+<h4>Example</h4>
+<p><pre>Private Sub Form_Load()
+    Form1.Show
+    lstCountry.AddItem "England"    
+    lstCountry.AddItem "USA"    
+    lstCountry.AddItem "Germany"
+    Print lstCountry.NewIndex
+End Sub</pre></p>
+<p>Output: 2</p>
+<h3>Index number of the currently highlighted item</h3>
+<p>Index number of the currently highlighted item can be obtained using the ListIndex property. The value of ListIndex is -1 if no item is highlighted. </p>
+<h4>Example</h4>
+<p><pre>Private Sub cmdShow_Click()
+    Print lstCountry.ListIndex
+End Sub
+
+Private Sub Form_Load()    
+    lstCountry.AddItem "England"    
+    lstCountry.AddItem "USA"    
+    lstCountry.AddItem "Germany"
+End Sub</pre></p>
+<p>The output is the index number of the currently highlighted item.</p>
+<h3>The List property</h3>
+<p>The particular item of the ListBox having index n can be obtained using the List(n) property.</p>
+<h4>Example</h4>
+<p><pre>Private Sub Form_Load()
+Form1.Show    
+lstCountry.AddItem "England"    
+lstCountry.AddItem "USA"    
+lstCountry.AddItem "Germany"
+    Print lstCountry.List(0)
+End Sub</pre></p>
+<h4>Output</h4>
+<p>England</p>
+<h3>Currently highlighted item</h3>
+<p>The text property of ListBox gives the currently highlighted item/string.</p>
+<h4>Example</h4>
+<p><pre>Private Sub Command1_Click()
+     Print lstCountry.Text
+End Sub
+
+Private Sub Form_Load()
+     lstCountry.AddItem "England"
+     lstCountry.AddItem "USA"
+     lstCountry.AddItem "Germany"
+End Sub</pre></p>
+<h4>Output</h4>
+<p>Text property to show the currently highlighted item in listbox </p>

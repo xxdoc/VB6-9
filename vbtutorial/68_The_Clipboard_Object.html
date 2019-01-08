@@ -1,0 +1,38 @@
+VB6 Tutorial 68: The Clipboard Object
+
+<p>Clipboard object is a simple object in Visual Basic 6 that stores data. You can retrieve the data from the clipboard using appropriate methods of the clipboard object. </p>
+
+<p>In the Windows operating system, when you copy some data, the data is automatically copied or stored in the clipboard object. You can place data in the clipboard object and retrieve the data from clipboard.</p>
+<p>You can easily copy and paste data among applications - from one application to another using the clipboard object. The clipboard object has no properties. It has a few methods that help you work upon the data.</p>
+
+<h3>The SetTex method</h3>
+<p>The SetTex method puts text in the clipboard. In other words, you can place text in the clipboard object using this method. </p>
+
+<h4>Example</h4>
+<p><pre>Clipboard.SetText Text1.Text</pre></p>
+
+<h3>The Clear method</h3>
+<p>The Clear method clears the clipboard.</p>
+
+<h4>Example</h4>
+<p><pre>Clipboard.Clear</pre></p>
+
+<h3>The GetTex method</h3>
+<p>The GetTex method lets you retrieve the text which is in clipboard.</p>
+
+<h4>Example</h4>
+<p><pre>Text2.Text = Clipboard.GetText</pre></p>
+
+<h3>The SetData method</h3>
+<p>The SetData method places data e.g an image in clipboard.</p>
+
+<h4>Example</h4>
+<p><pre>Clipboard.SetData Picture1.Picture
+' or
+Clipboard.SetData LoadPicture("d:\mypic.bmp")</pre></p>
+
+<h3>The GetData method</h3>
+<p>The GetData method retrieves data, for example an image, from the clipboard object.</p>
+
+<h4>Example</h4>
+<p><pre>Picture2.Picture = Clipboard.GetData</pre></p>

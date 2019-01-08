@@ -1,0 +1,48 @@
+VB6 Tutorial 25: PictureBox and Image Controls
+
+<p>Today I'll show you the usage of PictureBox and Image controls. </p>
+
+<p>There are some differences between the two controls. There are certain cases when the Image control is suitable, and in some other, the PictureBox control will make your task easier, though both of them share the same job. So lets dig into some details! </p>
+<h3>Where to use images?</h3>
+<p>The first plain fact to know is that the Image and PictureBox controls are used to display pictures or icons on the form. You develop a software and you don't use any picture, that does not make sense. You generally use pictures or icons for the company logo and to make your software more graphical that'll surely make your application user-friendly. You can make use of the images on the splash screen and in many other cases. </p>
+<h3>Supported Picture Formats</h3>
+<p>The supported picture formats for these control include BMP, DIB (bitmap), ICO (icon), CUR (cursor), WMF (metafile), EMF (enhanced metafile), GIF and JPEG. You can't use a PNG format.</p>
+<p>First off, I'll talk about the PictureBox control and then the Image control. Lastly the comparison and differentiation between them will be discussed along with the explanation of when to use one or another.</p>
+<h3>The PictureBox control</h3>
+<p>The following points describe a PictureBox control:</p>
+<ul><li>The pictureBox control comes with a light border around it.</li>
+<li><b>Works as a container:</b> You can place any other control on it, when you move the PictureBox control, all the controls on it moves along with. That means, it works as a container of other controls. </li>
+<li><b>Similarity with the Form:</b> This control is so similar to a form as both of them support all the graphical properties, graphical methods and conversion methods. </li>
+<li><b>Supports all the graphical properties:</b> It supports all the graphical properties such as AutoRedraw, ClipControls, HasDC, FontTransparent, CurrentX, CurrentY, and the Drawxxxx, Fillxxxx, and Scalexxxx properties.</li>
+<li><b>Supports all the graphical methods:</b> It supports all the graphical methods such as Cls, PSet, Point, Line, and Circle. </li>
+<li><b>Supports the conversion methods:</b> It supports the conversion methods such as ScaleX, ScaleY, TextWidth, and TextHeight.</li>
+<li><b>Loading images:</b> Using the Picture property, you can load a picture in design time and run-time. The LoadPicture function is used to load the picture from your computer. This function is used with both the PictureBox and Image controls.</li>></ul>
+<h4>Example</h4>
+<p><pre>Picture1.Picture = LoadPicture("D:\\PictureName.jpg")</pre></p>
+<h4>Example</h4>
+<p><pre>Image1.Picture = LoadPicture("D:\\PictureName.jpg")</pre></p>
+<p>Clearing the current image: You can clear the current image of the PictureBox or Image control in design time by clearing the value of Picture property. This can also be done in run-time in the following way.</p>
+<p><pre>Picture1.Picture=LoadPicture("")</pre></p>
+<p>or</p>
+<p><pre>set Picture1.picture=Nothing</pre></p>
+<p>The attached project shows how to load a picture control, given a full path and filename of the picture to load. Don't worry; we'll get in to a much better example when we talk about drive, directory, and file selection controls, later in the lessons.</p>
+<h3>The Image Control</h3>
+The image control has almost the same features of PictureBox. Loading Images: You load an image in the same way.
+<h4>Example</h4>
+<p><pre>Image1.Picture = LoadPicture("D:\\PictureName.jpg")</pre></p>
+<p>The image control also has a <b>Stretch</b> property. If you set the Stretch property to true, it stretches the picture to fit in the control. </p>
+<h3>How the Image control is different from PictureBox?</h3>
+<ul><li>Image controls are less complex than PictureBox controls.</li>
+<li>The Image control does not have border around it like a PictureBox control.</li>
+<li>The image control does not work as a container.</li>
+<li>The Image controls do not have graphical properties, graphical methods or conversion methods such as ScaleX, ScaleY, TextWidth, and TextHeight.</li>
+<li>The PictureBox control does not have the Stretch property. </li>
+<li>The Image control comparatively takes less memory, so it loads faster.</li></ul>
+<h3>Copying an image from one control to another</h3>
+<p>You can assign the Picture property of one control to another.</p>
+<h4>Example</h4>
+<p><pre>Picture2.Picture = Picture1.Picture</pre></p>
+<p>Or,</p>
+<p><pre>Image2.Picture = Image1.Picture</pre></p>
+<p>As a conclusion I want to say that many Visual Basic programmers prefer the Image control over PictureBox as the Image control consumes less memory resource resulting a faster loading of it. Besides, it supports all the events a pictureBox can have, and you can even have a border around it from the BorderStyle property.</p>
+<p>The only big limitation is that it cannot work as a container. For this reason, the PictureBox control can be sometimes preferred much. But above all, you should always choose one which is appropriate for your application.</p>

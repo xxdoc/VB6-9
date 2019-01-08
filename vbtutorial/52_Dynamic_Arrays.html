@@ -1,0 +1,29 @@
+VB6 Tutorial 52: Dynamic Arrays
+
+<p>In case of a fixed size array, we have seen that the size of the array is fixed or unchanged, but there may be some situations where you may want to change the array size. A dynamic array can be resized at run time whenever you want. </p>
+
+<h3>Declaring dynamic arrays</h3>
+<li>Declare the array with empty dimension list. For example:<br />
+<p><pre>Dim arr() As Integer</pre></p></li>
+<li>Resize the array with the ReDim keyword. For Example:<br />
+<p><pre>ReDim arr(5) As Integer</pre></p>
+<p> or </p>
+<p><pre>ReDim arr(2 To 5) As Integer</pre></p></li>
+<h4>Example</h4>
+<p><pre>Dim ar() As Integer
+ReDim ar(2) As Integer</pre></p>
+<div class="info"><h3>QuickHint:</h3><p>Unlike the Dim and Static statements, the ReDim statements are executable. So a ReDim statement can only be in a procedure and when you execute the ReDim statement, all the values stored in the array are lost. You can use the ReDim statement repeatedly to change the array size. </p></div>
+<h3>Preserving the values of Dynamic arrays</h3>
+<p>The ReDim statement deletes all the values stored in the array. You can preserve the element values using the Preserve keyword. So using Preserve keyword with ReDim statements enables you to change the array size without losing the data in the array.</p>
+<h4>Example</h4>
+<p><pre>Dim arr() As Integer
+ReDim arr(2) As Integer
+For i = 0 To 2
+    arr(i) = InputBox("Enter the value")
+Next i
+ReDim Preserve arr(3) As Integer
+arr(3) = 9
+Print arr(0), arr(1), arr(2), arr(3)</pre></p>
+<h4>Output</h4>
+<p>If the input values through InputBox are 5,6,7 then the following will be printed on the form.</p>
+<p><pre>5     6     7     9</pre></p>

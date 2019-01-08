@@ -1,0 +1,159 @@
+TAppBar Class v.1.4 for Visual Basic 5
+Copyright (c) 1997/98 Paolo Giacomuzzi
+e-mail: paolo.giacomuzzi@usa.net
+http://www.geocities.com/SiliconValley/9486
+-------------------------------------------
+
+
+PURPOSE
+
+The TAppBar class is a Visual Basic class, that lets your form to behave like an Application Desktop Toolbar (i.e. to dock on the edges of the screen like the Windows 95/NT Taskbar).
+
+"An application desktop toolbar (or an appbar for short) is a window that attaches itself to an edge of your screen. (The shell’s taskbar window is a well-known example of an appbar).
+Though appbars are usually docked on an edge of the user's screen, they also can float. To make room for an appbar that's docked, the Windows 95/NT shell shrinks the size of the screen's workarea. The workarea is the portion of the screen that is not occupied by any appbars.
+Whenever the user maximizes a window, the system ensures that the window fills the workarea, not the full screen. If an appbar is docked on the edge of the screen, moved from one edge of the screen to another, or removed from an edge of the screen, the system automatically resizes and repositions any maximized windows so that they always fill the workarea completely. In addition, when the upper-left corner of the workarea changes, the system shifts all the application windows on the screen so that they always maintain their relative distance from that corner." (J. Richter, 'Extend the Windows 95 Shell with Application Desktop Toolbars', MSDN)
+
+
+USAGE
+
+To add appbar behavior to your application, just follow these four steps.
+  (1) In your project, insert APPBAR.CLS and APPBAR.BAS modules.
+  (2) In your main form, declare:
+        Public AppBar As New TAppBar
+  (3) In Form_Load(), insert the line:
+        AppBar.Extends Me
+  (4) In Form_Unload(), insert the line:
+        AppBar.Detach
+  (Refer to the DEMOAPP.VBP project, for a ready-to-go example).
+
+Then, use the following properties and methods to customize the appbar appearance, position, size, and so on.
+
+
+PROPERTIES
+
+* AlwaysOnTop As Boolean
+Always-On-Top On/Off. If it is True, the appbar is always on top of all other windows. Recommended if AutoHide is True.
+
+* AutoHide As Boolean
+Auto-hide On/Off. If it is True, the appbar hides itself when focus is lost (just like the shell's taskbar).
+
+* Edge As TAppBarEdge
+Edge to dock on. It can assume one of the following values: abeLeft, abeTop, abeRight, abeBottom, abeUnknown, abeFloat.
+
+* Flags As TAppBarFlags
+Allowed dockable edges. It is a set of the following values: abfAllowLeft, abfAllowTop, abfAllowRight, abfAllowBottom, abfAllowFloat.
+
+* HorzSizeInc As Long
+Horizontal increment when window is resized. A value of zero prevents the appbar to be resized left or right.
+
+* VertSizeInc As Long
+Vertical increment when window is resized. A value of zero prevents the appbar to be resized top or bottom.
+
+* HorzDockSize As Long
+AppBar height when docked left or right.
+
+* VertDockSize As Long
+AppBar width when docked top or bottom.
+
+* FloatLeft As Long
+* FloatTop As Long
+* FloatRight As Long
+* FloatBottom As Long
+Coordinates of the window when the appbar is floating.
+
+* MinWidth As Long
+Min allowed width when the appbar is floating.
+
+* MinHeight As Long
+Min allowed height when the appbar is floating.
+
+* MaxWidth As Long
+Max allowed width when the appbar is floating.
+
+* MaxHeight As Long
+Max allowed height when the appbar is floating.
+
+* MinHorzDockSize As Long
+Min allowed height when the appbar is docked horizontally.
+
+* MinVertDockSize As Long
+Min allowd width when the appbar is docked vertically.
+
+* MaxHorzDockSize As Long
+Max allowed height when the appbar is docked horizontally.
+
+* MaxVertDockSize As Long
+Max allowed width when the appbar is docked vertically.
+
+* TaskEntry As TAppBarTaskEntry
+AppBar behavior in the Windows Taskbar. It can assume one of the following values:
+abtShow           - the Taskbar entry is always shown
+abtHide           - the Taskbar entry is never shown
+abtFloatDependent - the Taskbar entry is shown only when the appbar is floating
+
+* SlideEffect As Boolean
+When in auto-hide state, if it is True, the appbar slides in and out the screen. Otherwise the appbar pops in and out without animation. This property is ignored if the 'Show window contents while dragging' option is unchecked in the Control Panel.
+
+* SlideTime As Long
+Amount of time (in milliseconds) for the appbar window to slide in or out of the screen.
+
+* RootKey As Long
+RootKey in the registry where settings should be loaded/saved. The default root key is HKEY_CURRENT_USER.
+
+* KeyName As String
+KeyName in the registry where settings should be loaded/saved. The default key name is "Software\AppBar\1.4\VB".
+
+
+METHODS
+
+* Extends
+Extends the calling form with the AppBar properties and methods. It is typically called by the main form in the Form_Load() sub.
+
+* Detach
+Detaches the AppBar behavior from the calling form. It is typically called by the main form in the Form_Unload() sub.
+
+* UpdateBar
+Forces the appbar's visual appearance to match its internal state. Call this method after changing one or more properties.
+
+* LoadSettings
+Loads settings from the registry at RootKey and KeyName location. Returns TRUE if the settings are available, else FALSE.
+
+* SaveSettings
+Saves settings into the registry at RootKey and KeyName location. Returns TRUE if succeeded, else FALSE
+
+
+EVENTS (overridable functions)
+
+* Friend Function OnAppBarStateChange(ByVal bProposed As Boolean,
+                                      ByVal abEdgeProposed As TAppBarEdge)
+Called when the appbar's state changes. Using this notification, it is possible to be notified when the appbar is going to change its state. If bProposed is True, the appbar is being repositioned on an edge but not yet docked. If bProposed is False, the appbar is definitively docked on a new edge. The abEdgeProposed argument indicates the edge the appbar is being docked.
+
+* Friend Function OnAppBarForcedToDocked()
+Called if the user attempts to dock an autohide appbar on an edge that already contains an autohide appbar.
+
+* Friend Function OnABNFullScreenApp(ByVal bOpen As Boolean)
+Called when a fullscreen application is opened or closed. The bOpen argument contains True if a fullscreen window is opening and False if one is closing.
+
+* Friend Function OnABNPosChanged()
+Called when any appbar alters its size. This notification is also sent when an appbar is removed, and when the shell's taskbar is in autohide mode and the user causes it to slide on or off the screen.
+
+* Friend Function OnABNWindowArrange(ByVal bBeginning As Boolean)
+Called when the user chooses either the cascade, tile horizontally, or tile vertically options from the shell's taskbar. This notification is sent to each appbar twice: the first time when the system is about to reposition all the windows (the bBeginning argument contains True), and the second time after that all the windows have been moved (the bBeginning argument contains False).
+
+
+DISCLAIMER
+
+THIS SOFTWARE AND THE ACCOMPANYING FILES ARE DISTRIBUTED "AS IS" AND WITHOUT WARRANTIES AS TO PERFORMANCE OF MERCHANTABILITY OR ANY OTHER WARRANTIES WHETHER EXPRESSED OR IMPLIED. Because of the various software environments into which this class may be used, NO WARRANTY OF FITNESS FOR A PARTICULAR PURPOSE IS OFFERED.
+Good data processing procedure dictates that any program based on this class be thoroughly tested with non-critical data before relying on it. THE USER MUST ASSUME THE ENTIRE RISK OF USING THE TAPPBAR CLASS.
+
+
+HISTORY
+
+* 1.4 - Porting from Delphi 3 to Visual Basic 5.
+
+
+NOTES OF THE AUTHOR
+
+* The TAppBar class is largely based on the J.Richter's CAppBar MFC Class.
+* TAppBar is completely FREEWARE.
+* Comments, suggestions and improvements are welcome.

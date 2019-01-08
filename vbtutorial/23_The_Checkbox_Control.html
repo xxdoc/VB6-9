@@ -1,0 +1,51 @@
+VB6 Tutorial 23: The CheckBox Control
+
+<p>In this lesson, I'll give you an overview of the CheckBox control in VB6. This is a powerful tool in the Visual Basic 6 IDE.</p>
+
+<p>Unlike the OptionButton control, the CheckBox control lets you perform multiple selections, meaning that the end user of your finished software product will be able to have multiple choices from a list of items. </p>
+<p>This control has three states : checked, unchecked and grayed. The value property determines the checkbox state.</p>
+<h3>Example</h3>
+<p><pre>Private Sub cmdShow_Click()
+    If Check1.Value = 1 Then
+        Print "Checked !"
+    ElseIf Check1.Value = 0 Then
+        Print "Unchecked !"
+    End If
+End Sub</pre></p>
+<p>If you assign Check1.Value = 1 then the CheckBox is checked and if Check1.Value = 0 then it is unchecked. If Check1.Value = 2 then the checkbox is grayed.</p>
+<h3>Example</h3> 
+<p>The previous program can also be written in the following way.</p>
+<p><pre>Private Sub cmdShow_Click()
+    If Check1.Value = VBChecked Then
+        Print "Checked !"
+    ElseIf Check1.Value = VBUnchecked Then
+        Print "Unchecked !"
+    End If
+End Sub</pre></p>
+<p><i>vbChecked</i> and <i>vbUnchecked</i> are VB constants whose values are 1 and 0 respectively.</p>
+<p>The grayed state can be set using the 'vbGrayed' VB constant whose value is 2.</p>
+<h3>Example</h3> Program to make multiple choices.
+<p><pre>Private Sub cmdShow_Click()
+     If chkTea.Value = 1 Then
+         Print "Tea"
+     End If
+
+     If chkCoffee.Value = 1 Then
+         Print "Coffee"
+     End If
+
+     If chkPizza.Value = 1 Then
+         Print "Pizza"
+     End If
+
+     If chkChocolate.Value = 1 Then
+         Print "Chocolate"
+     End If
+End Sub</pre></p>
+<p>Apart from checked and unchecked states, there is another state called grayed state. The grayed state is used to indicate that the checkbox is unavailable. 
+<p>The grayed state can be set using the value property from the Properties Window or you may want to set this property in run-time.</p>
+<h3>Example</h3>
+<p><pre>Check1.Value = VBGrayed</pre></p>
+Or,
+<p><pre>Check1.Value = 2</pre></p>
+<p>The attached project, <i>The_Checkbox_Control</i>, gives you a good idea of using the checkbox control.</p>

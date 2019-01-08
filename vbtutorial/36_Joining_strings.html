@@ -1,0 +1,70 @@
+VB6 Tutorial 36: Joining Strings
+
+<p>When we joing two strings together, this is called <i>concatenation</i>. According to Merriam-Webster, <i>concatenate</i> means to "link together in a series or chain".  This lesson covers string concatenatation.</p>
+
+<h3>Basic Concatenation</h3>
+<p>Concatenation can use '+' operator. You can join multiple strings using the "+" operator. </p>
+<h4>Example</h4>
+<p><pre>Private Sub cmdJoin_Click()
+    Dim str As String, str1 As String, str2 As String
+    str1 = "Visual"
+    str2 = "Basic"
+    str = str1 + str2
+    Print str
+End Sub</pre></p>
+<p>Output: visualbasic</p>
+<p>The standard operator used to join strings is the ampersand (&amp;).</p>
+<h4>Example</h4>
+<p><pre>
+Private Sub cmdConcat_Click()
+    Dim str As String, str1 As String, str2 As String
+    str1 = "New"
+    str2 = "Program"
+    str = str1 & str2
+    Print str
+End Sub</pre></p>
+<p>Output: NewProgram</p>
+<div class="info">
+<h3>QuickHint:</h3>
+<p>Sometimes, the '&' operator is a better choice for concatenation. If you join a string with a numeric value, the '+' operator will show a Type Mismatch run-time error while the "&" operator will do the job without throwing an error. See the below example.
+<h4>Example:</h4>
+<p><pre>
+Dim n As Integer, s As String
+n = 34
+s = "one"
+MsgBox n & s   'if you use +, it will show an error</pre></p></div>
+<h3>The vbTab constant</h3>
+<p>vbTab is the constant for Tab character. </p>
+<h4>Example</h4>
+<p><pre>Private Sub Command1_Click()
+    Dim s1 As String, s2 As String, str As String
+    s1 = "Visual"
+    s2 = "Basic"
+    MsgBox s1 & vbTab & s2
+End Sub</pre></p>
+<p>Output:</p>
+<p>Visual&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Basic</p>
+<h3>The vbCrLf constant</h3>
+<p>vbCrLf is the constant for Carriage-return/Line feed character.</p>
+<h4>Example</h4>
+<p><pre>Dim s1 As String, s2 As String, str As String
+s1 = "Visual"
+s2 = "Basic"
+MsgBox s1 & vbCrLf & s2</pre></p>
+<p>Output: </p>
+<p>Visual<br />Basic</p>
+<h3>The semicolon ';' operator</h3>
+<p>Semicolon in a Print statement suppresses the line feed. That is why when you print two consecutive strings using ';' operator in between, you see two strings together. But this operator does NOT concatenate strings.</p>
+<h4>Example</h4>
+<p><pre>Dim str As String, str1 As String, str2 As String
+str1 = "One"
+str2 = "Two"
+Print str1; str2</pre></p>
+<p>Output:</p>
+<p>OneTwo</p>
+<h4>Example</h4>
+<p><pre>str1 = "One"
+str2 = "Two"
+Print str1; 
+Print str2</pre></p>
+<p>Output: OneTwo </p>

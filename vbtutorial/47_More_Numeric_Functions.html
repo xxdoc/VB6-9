@@ -1,0 +1,88 @@
+VB6 Tutorial 47: More Numeric Functions
+<p>This lesson is about the numeric functions in VB6. Before proceeding with this lesson, you may want to read <a href="https://www.fortypoundhead.com/showcontent.asp?artid=24264" alt="Handy Numeric Functions" title="Handy Numeric Functions">VB6 Tutorial 34: Handy Numeric functions</a>.</p>
+
+<p>As mentioned in the previous lesson 34, VB6 contains many useful operators and functions to efficiently work with numbers. In this post, I'll go over a few more of them.</p>
+<h3>Abs</h3>
+<p>It returns the absolute value of a number. </p>
+<h4>Example</h4>
+<p><pre>Private Sub Form_Load()
+    Form1.Show
+    Print abs(-10)
+End Sub</pre></p>
+<h4>Output</h4> 
+<p>10</p>
+<h3>Sin, Cos and Tan</h3>
+<p>These functions return the sine, cosine and tangent of an angel. These functions receive arguments in radian. Convert radian to degree multiplying Pi/180. You may declare a Pi constant at the beginning.</p>
+<h4>Example</h4>
+<p><pre>Private Sub Form_Load()
+    Form1.Show
+    Print Sin(90)
+    Print Cos(0)
+    Print Tan(45)
+End Sub</pre></p>
+<h4>Output</h4> 
+<p>0.893996663600558<br />
+1<br />
+1.61977519054386</p>
+<h3>Exp</h3>
+<p>The Exp function returns e (the base of natural logarithms) raised to a power.</p>
+<h4>Example</h4>
+<p><pre>Private Sub Form_Load()
+    Form1.Show
+    Print Exp(5)    'equivalent to e^5
+End Sub</pre></p>
+<h4>Output</h4> 
+<p>148.413159102677</p>
+<h3>Log</h3>
+<p>The Log function returns the natural logarithm of a number.</p>
+<h4>Example</h4>
+<p><pre>Private Sub cmdPrint_Click()
+    Print Log(10)
+End Sub</pre></p>
+<h4>Output</h4> 2.30258509299405
+<h3>Sgn</h3>
+<p>This function indicates the sign of a number. It returns -1, 0 or 1 if the number is negative, zero or positive respectively.</p>
+<h4>Example</h4>
+<p><pre>Private Sub cmdShowSign_Click()
+    Print Sgn(-10)
+End Sub</pre></p>
+<h4>Output</h4> 
+<p>-1</p>
+<h3>The Fix function</h3>
+<p>Fix function truncates the decimal part of a number. In Lesson 34, you have seen that the Int function also truncates the decimal part of a number. But this function is different from the Fix function. You see the difference when the number is negative in case of the Int function. So the function that actually truncates the decimal part of a number is Fix. </p>
+<h4>Example</h4>
+<p><pre>Private Sub cmdTruncate_Click()
+    Print Fix(4.5)
+    Print Fix(-4.5)
+End Sub</pre></p>
+<h4>Output</h4>
+<p>4<br />
+-4</p>
+<h3>The Rnd function</h3>
+<p>Sometimes, we need to generate some random values. The Rnd function returns a random value between 0 and 1.</p>
+<div class="info"><h3>QuickHint:</h3><p>Rnd is not a variable, it is a function. </p></div>
+<h4>Example</h4> Each time the CommandButton is clicked , it gives a different value between 0 and 1.
+<p><pre>Private Sub cmdGenerateRandomNumbers_Click()
+    Randomize()   'Randomizes the number
+    lblResult.Caption = Rnd
+End Sub</pre></p>
+<h4>Output</h4>
+<p><img src="https://imgur.com/40mcu5x.png" alt="Random Number Output" title="Random Number Output" /></p>
+<p>The attached example project demonstrates how to generate values between the numbers you specify.</p>
+<h3>The Hex and Oct functions</h3>
+<p>The Hex function returns the string representation of its hexadecimal equivalent and the Oct function converts the number to Octal.</p>
+<h4>Example</h4>
+<p><pre>Private Sub cmdConvert_Click()
+    Print Hex(10), Oct(50)
+End Sub</pre></p>
+<h4>Output</h4> 
+<p><pre>A                 62</pre></p>
+<p>To convert a hexadecimal or octal number into decimal value</p>
+<h4>Example</h4>
+<p><pre>Private Sub cmdConvert_Click()
+    Print Val("&H" & "A")   'A is the Hexadecimal number
+    Print Val("&O" & "62")  '62 is an octal number
+End Sub</pre></p>
+<h4>Output</h4> 
+<p>10<br />
+50</p>

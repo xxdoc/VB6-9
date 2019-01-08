@@ -1,0 +1,91 @@
+26_Common_Events.html
+
+<p>This VB6 lesson is about the common events that give life to event driven programming. </p>
+
+<h3>Change</h3>
+<p>Visual Basic fires Change event of a control when the contents of that particular control change. Change event is especially useful for TextBox. When you type something in the TextBox, the Change event of TextBox is raised. </p>
+<h4>Example</h4>
+<p><pre>Private Sub txtField_Change()
+    txtField.Text = ""
+End Sub</pre></p>
+<p>In this example, whenever you type something, the Change event is triggered and the text field is cleared. That means you cannot write anything in the TextBox.</p>
+<p>The other important points about this event are:</p>
+<ul><li>ComboBox, both scroll bars, PictureBox, DriveListBox and DirectoryListBox also raise a Change event.</li>
+<li>ComboBox raises Change event when you type in the editable area of the control. </li></ul>
+<div class="info"><h3>Quickhint</h3>
+<ul><li>Change event is not raised when you select an item from the ComboBox control.</li>
+<li>Change event is not raised when you programmatically change the text of a an item of a  ComboBox control.</li>
+<li>Scroll bar controls raise Change event when the user clicks on the arrows.</li>
+<li>When you set a directory from DirectoryListBox by double-clicking on that particular item  or when you choose a drive from DriveListBox, Change event is raised.</li>
+<li>Change event fires when the content of the control is changed through code. The below example clarifies this:
+<p><pre>Private Sub cmdButton_Click()
+    Text1.Text = ""
+End Sub
+
+Private Sub Text1_Change()
+    MsgBox "change event fired"
+End Sub</pre></p></li></ul></div>
+<h3>GotFocus </h3>
+<p>The lines of code in the GotFocus Event procedure of the object is executed, when the object gets the focus.</p>
+<h3>LostFocus</h3>
+<p>The lines of code in the GotFocus Event procedure of the object is executed, when the object losts the focus.</p>
+<p>The attached sample project <i>GotFocus_LostFocus</i> demonstrates the focus-related events. <b><i>Note:</i></b> this project makes use of the debug window to show the output. This window will appear at the bottom of your IDE, and will show any output from <i>debug.print</i> statements.</p>
+<p>If the windows is not visible, press <b>Control+G</b> to toggle it on.  To make it disappear, press <b>Contrl+G</b> again.</p>
+<h3>KeyPress</h3>
+<p>When you press any key from the keyboard, the KeyPress event of the object is invoked. </p>
+<h4>Example</h4> 
+<p>Detects which key has been pressed.</p>
+<p><pre>Private Sub txtField_KeyPress(KeyAscii As Integer)
+    Dim key As String
+    key = Chr(KeyAscii)
+    Print "You have entered  " & key
+End Sub</pre></p>
+<p>KeyAscii in the procedure's paremeter is the ASCII code of the key you have pressed. The KeyPress event is clarified in the following sample application.</p>
+<p>The attached sample project, <i>ASCII_Converter</i>demonstrates the Keypress event.  Note that the project also uses the CHR function.  This function converts the character value of an ASCII code.</p>
+<h3>KeyDown and KeyUp</h3>
+<p>The KeyDown event fires when you press the key and the KeyUp event is raised when you release the key. The KeyDown and KeyUp event procedures have two parameters, KeyCode and Shift. The KeyCode parameter is the code for the pressed key and the Shift parameter indicates the state of the Ctrl, Shift and Alt keys.</p>
+<h4>Example</h4> 
+<p>Clear TextBox pressing F5. </p>
+<p><pre>Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+    If KeyCode = vbKeyF5 Then
+        Text1.Text = ""
+    End If
+End Sub</pre></p>
+<h4>Example</h4> 
+<p>Change form's background color using shortcut keys.</p>
+<p><pre>Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+    If KeyCode = vbKeyG And Shift = vbCtrlMask Then
+        Form1.BackColor = vbGreen
+    ElseIf KeyCode = vbKeyD And Shift = vbShiftMask Then
+        Form1.BackColor = vbWhite
+    End If
+End Sub</pre></p>
+<p>The another symbolic constant value for the Shift parameter is vbAltMask.</p>
+<p>See the two attached sample projects (<i>Make_Shortcut_Key_1 and Make_Shortcut_Key_2</i>) to see examples of making your own shortcut keys.</p>
+<h3>MouseMove</h3>
+<p>When you move the mouse over an object, the MouseMove event is raised.</p>
+<h4>Example</h4> 
+<p>The background color of the PictureBox is set to black when you move the mouse over it.</p>
+<p><pre>Private Sub Picture1_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    Picture1.BackColor = vbBlack
+End Sub</pre></p>
+<h4>Example</h4> 
+<p>Shows the mouse pointer position on the form.</p>
+<p><pre>Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    Label1.Caption = X
+    Label2.Caption = Y
+End Sub</pre></p>
+<h3>MouseDown & MouseUp</h3>
+<p>When the mouse is clicked, the MouseDown event is raised. When the mouse is released, the MouseUp event fires.</p>
+<p>The MouseDown, MouseUp and MouseMove events receive the same paremeters --Button, Shift, X, Y. Button indicates the state of mouse buttons. Shift indicates the states of Ctrl/Shift/Alt keys, and X is x-coordinate, Y is y-coordinate.</p>
+<h4>Example</h4> 
+<p>Shows which mouse button has been pressed.</p>
+<p><pre>Private Sub Form_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Button = vbLeftButton Then
+        Label3.Caption = "Left"
+    ElseIf Button = vbRightButton Then
+        Label3.Caption = "Right"
+    ElseIf Button = vbMiddleButton Then
+        Label3.Caption = "Middle"
+    End If
+End Sub</pre></p>

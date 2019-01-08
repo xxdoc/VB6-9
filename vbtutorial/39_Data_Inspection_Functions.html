@@ -1,0 +1,86 @@
+VB6 Tutorial 39: Data Inspection Functions 
+
+<p>You'll learn about some data inspection functions in this lesson. These functions will inspect the expression. More precisely, these functions will provide you the information related to your expression. You'll get these functions in the Object Browser inside the "Information" module.</p>
+
+<p>In this lesson, we'll be learning about the following functions:</p>
+<ul><li>IsNumeric</li>
+<li>IsArray</li>
+<li>IsDate</li>
+<li>IsEmpty</li>
+<li>IsObject </li>
+<li>TypeName</li>
+<li>IsError</li>
+<li>IsMissing</li>
+<li>IsNull </li></ul>
+<h3>IsNumeric </h3>
+<p>The IsNumeric function returns Boolean value, returns True if an expression can be evaluated to a number.</p>
+<p>This function is useful when you want your users to enter only the numeric values in the required field.</p>
+<h4>Example</h4>
+<p><pre>Private Sub cmdCheck_Click()
+    If IsNumeric(txtField.Text) = True Then
+        MsgBox "Value accepted"
+    Else
+        MsgBox "Please enter a numeric value"
+    End If
+End Sub</pre></p>
+<h3>IsArray </h3>
+<p>The IsArray function returns a Boolean value, returns True if the variable is an array. When you want to check whether a particular variable is an array, the IsArray function is useful.</p>
+<h4>Example</h4>
+<p><pre>Dim team(20) As Integer
+If IsArray(team) = True Then
+    MsgBox "This is an array"
+Else
+    MsgBox "This is NOT an array"
+End If</pre></p>
+<h3>IsDate </h3>
+<p>The IsDate function returns a boolean value, returns True if an expression is a date.</p>
+<h4>Example</h4>
+<p><pre>Dim dt As Date
+
+dt = 20 / 20 / 2013
+
+If IsDate(dt) = True Then
+    MsgBox "This is a date"
+Else
+    MsgBox "This is NOT a date"
+End If</pre></p>
+<h3>IsEmpty </h3>
+<p>The IsEmpty function returns True if a variable has not been initialized.</p>
+<h4>Example</h4> 
+<p>Take a variant variable score.</p>
+<p><pre>If IsEmpty(score) = True Then
+        MsgBox "Not initialized"
+    Else
+        MsgBox "Initialized"
+End If</pre></p>
+<h3>IsObject </h3>
+<p>The IsObject function returns True if the variable is of Object type.</p>
+<h4>Example</h4>
+<p><pre>Dim frm As Form
+ 
+If IsObject(frm) = True Then
+    MsgBox "Object variable"
+Else
+    MsgBox "This is NOT an object variable"
+End If</pre></p>
+<h3>TypeName </h3>
+<p>Returns the datatype of the variable.</p>
+<h4>Example</h4>
+<p><pre>Dim n As Integer
+n = 34
+Dim str As String
+str = TypeName(n)
+MsgBox str</pre></p>
+<h3>IsError</h3>
+<p>Returns True if an expression is an error value.</p>
+<h3>IsMissing</h3>
+<p>Returns True if an optional argument has not been passed.</p>
+<h3>IsNull</h3>
+<p>Returns True if an expression doesn't contain any valid data.</p>
+<h3>Related topics</h3>
+<ul><li><a href="https://www.fortypoundhead.com/showcontent.asp?artid=24234" target="_blank" title="Variables and Data Types" alt="Variables and Data Types">Variables and data types</a></li>
+<li>Using the data types</li>
+<li>Array</li>
+<li>Working with numbers</li>
+<li>Date-Time functions</li>
+<li><a href="https://www.fortypoundhead.com/showcontent.asp?artid=24269" target="_blank" title="Working with date and time" alt="Working with date and time">Working with date and time</li></ul>

@@ -1,0 +1,55 @@
+VB6 Tutorial 53: Control Array
+
+<p>Up to this point, we have discussed array of variables. Similarly you can also have an array of controls by grouping a set of controls together. The controls must be of the same type like all TextBoxes or all CommandButtons.</p>
+
+<h3>Creating control arrays</h3>
+<ol><li>Place some same type of controls say CommandButtons on the form. Make their name properties same and then a warning (see picture below) dialog box will come asking whether you want to create a control array, click Yes. Or, after placing a control on the form, copy that and paste on the form. It will create control array for you.</li>
+<li>Set the Index property of each control or you may not change as it is automatically set. </li>
+<li>Now its done. You are ready to use the control array in your code.</li></ol>
+<h3>Using control array</h3>
+<p>Syntax to refer to a member of the control array:</p>
+<p><pre>Control_Name(Index).Property </pre></p>
+<h4>Example</h4> 
+<p>Set the Style property of Command1(1) to 1 to work with the BackColor property. </p>
+<p><pre>Private Sub Command1_Click(Index As Integer)
+    Command1(1).BackColor = vbGreen
+End Sub</pre></p>
+<h4>Example</h4> 
+<p>Create a control array of 5 CommandButton controls and then set their Style property to 1.</p>
+<p><pre>Private Sub Command1_Click(Index As Integer)
+    Dim i As Integer
+
+    For i = 0 To 4
+        Command1(i).BackColor = vbBlue
+    Next i
+End Sub</pre></p>
+<p>You can also pass a value to the Index parameter from other procedures.</p>
+<p>Control array is useful when you want to clear a set of TextBox fields. Create a control array of 5 TextBox controls and write the following code in the Click event procedure of a CommandButton control.</p>
+<h4>Example</h4>
+<p><pre>Private Sub cmdClearAllFields_Click()
+    Dim i As Integer
+
+    For i = 0 To 4  'Or, For i=Text1.LBound To Text1.UBound
+        Text1(i).Text = ""
+    Next i
+End Sub</pre></p>
+<h3>Sharing Event procedures</h3>
+<p>Create a control array of some command buttons with the name "Command1". Note that Visual Basic automatically passes the Index parameter value. So the following code will work for all controls in the control array. You don't need to write code for all the CommandButton controls. Click on any CommandButton, the following single block of code will work for all.</p>
+<h4>Example</h4>
+<p><pre>Private Sub Command1_Click(Index As Integer)
+    Command1(Index).BackColor = vbBlack
+End Sub</pre></p>
+<h3>Creating controls at run-time</h3>
+<p>Once you have created a control array, you can create controls at run-time using the Load command.</p>
+<h4>Example</h4> First of all, create Text1(0) and Text1(1) at design time.
+<p><pre>Private Sub Command1_Click()
+    Load Text1(2)
+
+    'Move the control where you want
+    Text1(2).Move 0, 100
+
+    Text1(2).Visible = True
+End Sub</pre></p>
+
+<p>On clicking the Command1 button, a new TextBox control will be created. You can remove any control from the control array using the Unload command. </p>
+<p><pre>Unload Text1(2)</pre></p>

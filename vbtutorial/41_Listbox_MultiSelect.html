@@ -1,0 +1,54 @@
+VB6 Tutorial 41: Listbox Multiselect
+
+<p>Visual Basic 6 allows you to use the multiple selection feature of the ListBox control.</p>
+
+<p>I have shown you many properties and methods of the listbox control in the previous lesson. Many good features were explained. But the multiple selection is probably the nicest feature among all. It lets you work with the list box control even more flexibly. </p>
+<h3>How to enable the multiple selection?</h3>
+<p>Set the multi-select property to either 1-Simple or to 2-Extended to enable it. The values of multi-Select property are 0-None, 1-Simple and 2-Extended. </p>
+<p>In the 1-Simple value of the Mult-Select property, you can select individual items at the same time using the mouse or by the space bar. But the 2-Extended value gives you an extra benefit by allowing the users to select the individual items by using the Shift key also. Generally speaking, the 2-Extended value is preferred by the majority programmers.</p>
+<h3>SelCount property</h3>
+<p>The SelCount property returns the number of selected items. </p>
+<h3>Selected property</h3>
+<p>The selected property takes the index, it returns True if the item is selected, returns False otherwise. See the attached sample project called <i>ListboxMultiSelect01</i> for a peek at multiselect in action.</p>
+<h4>Code</h4>
+<p>Below is the code for the example project. Note that in this example, I have used a private subroutine to reload the listbox.</p>
+<p>The <b>LoadListBox</b> subroutine defines the variable <i>MyList</i> as an object, so the variable can be treated just like an any other object. In this example we can pass any listbox to the subroutine, and it will clear and re-load the specified listbox.</p>
+<p><pre>Private Sub cmdClearAll_Click()
+    For i = 0 To List1.ListCount - 1
+        List1.Selected(i) = False
+    Next
+End Sub
+
+Private Sub cmdDelete_Click()
+    For i = 0 To List1.SelCount - 1
+        List1.RemoveItem List1.ListIndex
+    Next
+End Sub
+
+Private Sub cmdDeleteAll_Click()
+    List1.Clear
+End Sub
+
+Private Sub cmdReload_Click()
+    LoadListbox List1
+End Sub
+
+Private Sub cmdSelectAll_Click()
+    For i = 0 To List1.ListCount - 1
+        List1.Selected(i) = True
+    Next
+End Sub
+
+Private Sub Form_Load()
+    LoadListbox List1
+End Sub
+
+Private Sub LoadListbox(MyList As ListBox)
+    MyList.Clear
+    For i = 0 To 10
+        MyList.AddItem "Item" & i
+    Next
+End Sub</pre></p>
+<h3>CheckBox-Style ListBox</h3>
+<p>For a multi-select checkbox, you also have the option of making it a checkbox style listbox, wherein the user would be able to click a box to select each item on the list.</p>
+<p>In the sample project, try changing the Style Property to 1-Checkbox, and see how the program behaves.</p>

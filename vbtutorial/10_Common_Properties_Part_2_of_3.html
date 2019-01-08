@@ -1,0 +1,43 @@
+VB6 Lesson 10: Common Properties, Part 2 of 3
+
+visual,basic,vb6,visualbasic,tutorial,basic,beginner,common,properties,part2
+
+<p>In this second part of three of the common properties section, we'll take a quick look at nine more properties that are common to most default VB6 objects.</p>
+
+<h3>The Left, Top, Width and Height properties</h3>
+<ul><li>The Left Property sets the distance between the internal left edge of an object and the left edge of its container.</li>
+<li>The Top Property sets the distance between the internal top edge of an object and the top edge of its container.</li>
+<li>The Width Property sets the width of an object.</li>
+<li>The Height Property sets the height of an object.</li></ul>
+<h4>Example</h4>
+<p><pre>Private Sub cmdChange_Click()
+     Form1.Left = 12000
+     Form1.Top = 7000
+     Form1.Height = 10000
+     Form1.Width = 12000
+End Sub</pre></p>
+<h3>The Container property</h3>
+<p>Moves an object into another container. You don't see it in the Properties Window, it is a run-time only property.</p>
+<p>In this case, you need to start with the 'Set' keyword.</p>
+<h4>Example</h4>
+<p><pre>Set Command1.Container = Frame1</pre></p>
+<p>The command1 control will be moved into frame1.</p>
+<h3>The Visible property</h3>
+<p>Determines whether an object is visible or hidden.</p>
+<h4>Example</h4>
+<p><pre>Label1.Visible = False</pre></p>
+<h3>The Enabled property</h3>
+<p>Determines whether an object can respond to user generated events.</p>
+<h4>Example</h4>
+<p><pre>Text1.enabled=False</pre></p>
+<h3>MousePointer and MouseIcon</h3>
+<p>The MousePointer property sets the type of mouse pointer over an object. The values of MousePointer property are</p>
+<ul style="list-style-type:none;"><li>0- Default</li>
+<li>1- Arrow</li>
+<li>2- Cross</li>
+<li>3- I-Beam</li>
+<li>4- Icon</li>
+<li>5- Size</li>
+<li>...etc...</li></ul>
+<p>The MouseIcon property sets a custom mouse icon from your files.</p>
+<p>In the next and final section on common properties, we'll take a quick look at nine more.</p>

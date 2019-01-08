@@ -1,0 +1,60 @@
+<p>This lesson is about the form events in Visual Basic 6. Learn about the other events in the lesson <a href="https://www.fortypoundhead.com/showcontent.asp?artid=24255" " alt="Common Events" title="Common Events">Common events</a>.</p>
+
+<p>Before the form becomes fully functional, a series of form events is invoked one by one when you run your program. They are discussed here according to this order. </p>
+<h3>Initialize</h3>
+<p>The Initialize event is the first event of a form when the program runs. This event is raised even before the actual form window is created. You can use this event to initialize form's properties.
+<h4>Example</h4>
+<p><pre>Private Sub Form_Initialize()
+    Text1.Text = ""
+    Text2.Text = ""
+End Sub</pre></p>
+<h3>Load </h3>
+<p>After the Initialize event, Load event fires when the Form is loaded in the memory. This Form event is invoked for assigning values to a control's property and for initializing variables. </p>
+<p>Note that the form is not visible yet. For this reason, you cannot invoke a graphic function like Cls, PSet, Point, Circle, Line etc and you cannot give the focus to any control with the SetFocus method in the form's Load event procedure. The Print command will not even work. </p>
+<p>On the other hand, this won't be a problem setting a control's property in the form's load event.</p>
+<h4>Example</h4>
+<p><pre>Private Sub Form_Load()
+    Text1.Text = ""
+    Text2.Text = ""
+    var1 = 0
+End Sub</pre></p>
+<h3>Resize </h3>
+<p>After the Load event, the form receives the Resize event. The form's Resize event is also raised when you resize the form either manually or programmatically.</p>
+<h3>Activate and Deactivate 
+<p>After the Resize event, Activate event fires. While working with multiple forms, the Activate event fires when the form becomes an active form in the current application, and the Deactivate event fires when the other form becomes the active Form. </p>
+<p>Another important form event is the Paint event which I'll not discuss here. Paint event will be covered later in another lesson.</p>
+<p>Note that when you run your program, form events such as Initialize, Load, Resize, Activate and Paint events are raised automatically one by one. The Paint event is not raised when the form's AutoRedraw property is set to True.</p>
+<h3>QueryUnload </h3>
+<p>When you close or unload the form, the form first receives the QueryUnload event and then the Unload event.</p>
+<p>The QueryUnload event is invoked when the form is about to be closed. When the form is closed, it may be unloaded by the user, the task manager, the code, owner form, MDI form or it may be closed when the current windows session is ending.</p>
+<p><pre>Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode _
+ As Integer)
+    'code here
+End Sub</pre></p>
+<p>This event procedure takes two parameters, Cancel and UnloadMode. The Cancel parameter cancels the unload operation, and depending on the symbolic values of UnloadMode,  a particular task can be performed.</p>
+<h4>Example</h4>
+<p><pre>Private Sub Form_QueryUnload(Cancel  _
+As Integer, UnloadMode As Integer)
+    If UnloadMode = vbFormControlMenu Then   'vbFormControlMenu=0
+        MsgBox "the form is being closed by the user."
+    End If
+End Sub</pre></p>
+<p>The other constants are vbFormCode, vbAppWindows, vbAppTaskManager, vbFormMDIForm, vbFormOwner.</p>
+<p>Symbolic constant values for the UnloadMode parameter are explained below:</p>
+<ul><li>vbFormControlMenu: when the form is closed by the user.</li>
+<li>vbFormCode: Use this constant when you're closing a form by code.</li>
+<li>vbAppWindows: when the current windows session is ending.</li>
+<li>vbAppTaskManager: when the task manager is closing the application.</li>
+<li>vbFormMDIForm: when the MDI parent is closing the form.</li>
+<li>vbFormOwner: when the owner form is closing.</li></ul>
+<h3>Unload </h3>
+<p>The Unload event fires when the Form unloads. You can use this event to warn the user that data needs to be saved before closing the application. </p>
+<h4>Example</h4> In this program, you cannot close the Form keeping the text field blank
+<p><pre>Private Sub Form_Unload(Cancel As Integer)
+    If Text1.Text = "" Then
+        MsgBox "You cannot exit keeping the text field blank"
+        Cancel = True
+    End If
+End Sub</pre></p>
+<p>When Cancel = True, you cannot close the Form. The Cancel parameter is used to cancel the the form's unload operation.</p>
+<p>In the next lesson, you'll learn about the mouse hover effect.</p>

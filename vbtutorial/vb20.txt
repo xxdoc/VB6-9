@@ -1,0 +1,80 @@
+VB6 Tutorial 20: Do Loops 
+
+Loops are used to execute a block of statements repeatedly based on a condition. 
+
+
+Do Loop 
+There are different forms of Do Loops in Visual Basic 6. These are i) Do While...Loop, ii) Do...Loop While and iii) Do...Loop Until.
+
+
+i) Do While...Loop: The Do While...Loop structure is used to execute statements repeatedly based on a certain condition.
+It first tests the condition then evaluates the loop. If the condition is True, the statements block is executed. If the condition is false, the statements inside the loop are not executed and the control is transferred to the line after the loop statements.
+The repeated execution of the statements inside the loop goes on as long as the condition is true. When the condition becomes False, it exits the loop.
+
+Syntax:
+<p></p>Do While Condition
+    statement(s)
+Loop
+
+Example: To print from 0 to 9.
+Dim num As Integer
+num = 0
+Do While num < 10
+    Print num
+    num = num + 1
+Loop
+
+The program first checks the condition. If num is less than 10, the statements inside the Do While...Loop are executed. Again, the condition is checked. If it is True, the statements are executed. In this way, the iterative execution goes on. When the value of num becomes 10, the loop ends.
+
+
+ii) Do...loop while: 
+This loop structure first executes the statements and after that tests the condition for the repeated execution.
+
+Syntax:
+              Do
+                     statement(s)
+
+              Loop while Condition 
+
+Example: To print from 0 to 10.
+Dim num As Integer
+num = 0
+Do
+    Print num
+    num = num + 1
+Loop While num <= 10
+
+Another example: Though the condition does not satisfy, the program will print 11  as this loop structure first executes the statements and after that tests the condition.
+Dim num As Integer
+num = 11
+Do
+    Print num
+    num = num + 1
+Loop While num < 10
+
+Output: 11
+
+
+iii) Do...loop until: 
+The Do...Loop Untill structure executes the statements repeatedly until the condition is met. It is an infinite loop if the condition does not satisfy. In this case, the program cannot be stopped. Press Ctrl+Break key combination to force it to stop. The loop continues until the condition is met. The repeated execution of the statements stops when the condition is met.
+
+Syntax:
+        Do
+              statement(s) 
+
+         Loop Until Condition
+
+Example:
+'x is incremented until x becomes greater than 10 
+
+Dim x As Integer
+x = 0
+Do
+    x = x + 1
+Loop Until x > 10
+    
+MsgBox x
+
+
+
+Download sample program: Password Check

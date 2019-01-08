@@ -1,0 +1,66 @@
+<p>In this lesson, I shall take you through the concept of the nested if-else block. The visual basic language provides many convenient ways for conditional operations. This text section shows you one of them, nesting of the simple If blocks.</p>
+
+<h3>Nested If-Else </h3>
+<p>If you have programmed in other languages, you might probably know about nested if-else control flow block. In VB it is the same concept. See the syntax and the examples to capture the concept. </p>
+<p>In nested if-else, the structure is little changed, little advanced better to say, from the simple If-Block. Here if the first condition does not satisfy, it looks for the next condition preceded by the ElseIf term, if that too does not satisfy, it looks for the next, and it goes on until the end of the structure.</p>
+<h4>Syntax</h4>
+<p><pre>If Condition Then
+    statements
+ElseIf Condition then
+    statements
+ElseIf Condition Then
+    statements
+Else
+    statements
+End If</pre></p>
+<h4>Example</h4>
+<p><pre>a = Val(InputBox("Enter a no."))
+
+If a > 0 Then
+    Print "Positive"
+ElseIf a < 0 Then
+    Print "Negative"
+Else
+    Print "Zero"
+End If</pre></p>
+
+<p>In a nested if-else block, one If-Block can reside in another. See the example below.</p>
+<h4>Example</h4>
+<p><pre>'If-statement inside another if-statement 
+Dim a As Integer
+a = Val(txtNumber.Text)
+
+If a > 0 Then
+    Print "Positive"
+    If a > 2 Then
+        Print "Greater than 2"
+    Else
+        Print "Less than 2"
+    End If
+Else
+    If a < 0 Then
+        Print "Negative"
+    End If
+End If</pre></p>
+<p>In <a href="https://www.fortypoundhead.com/showcontent.asp?artid=24236" target="_blank" alt="Operators and Expressions">VB6 Tutorial 08: Operators & Expressions</a>, Boolean operators were not explained as it would require the concept of If-Else condition to understand. So Boolean operators are covered in this Lesson.</p>
+<h3>Boolean Operators : And, Or, Not, Xor</h3>
+<p>And indicates that all expressions are true, Or indicates that one of the expressions or all are true, Not indicates negation, Xor indicates that one of the expressions are true.  </p>
+<h4>Example</h4>
+<p><pre>Dim num1 As Integer, num2 As Integer
+num1 = InputBox("Enter 1st number")
+num2 = InputBox("Enter 2nd number")
+
+If (num1 > 0) And (num2 > 0) Then
+    MsgBox "Both the numbers are positive"
+End If
+If (num1 > 0) Or (num2 > 0) Then
+    MsgBox "Either 1st number or 2nd number or both are positive"
+End If
+If Not (num1 = 0) Then
+    MsgBox "The first number is non-zero"
+End If
+
+If (num1 > 0) Xor (num2 > 0) Then
+    MsgBox "Either 1st number or 2nd number is positive"
+End If</pre></p>
+<p>See the attached project for examples.</p>

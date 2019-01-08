@@ -1,0 +1,66 @@
+VB6 Tutorial 45: Overflow Errors
+
+<p>Have you ever faced an overflow-error? While working with large data, generally large numbers, overflow error raises. I’m going to explain about the overflow-error to you in this lesson with some tips and tricks for fixing it.</p>
+ 
+<h3>Reasons for an Overflow error</h3>
+<h4>Assigning large numbers </h4>
+<p>The overflow error occurs when you’re assigning a large number or a numeric expression to a variable of the data type having a smaller value range.</p>
+
+<h5>Example</h5>
+<p>This example throws an overflow error.</p>
+<p><pre>Dim var As Integer
+var = 98768787</pre></p>
+<p><img src="https://imgur.com/1iuyi5c.jpg" alt="run time error 6" title="run time error 6" /></p>
+<p>Run-time error 6 occurs in this example as the variable var is not able to store the value of this size. The range of an integer data type is from -32,768 through +32,767. So assigning any value beyond this range will cause an overflow-error. Take a Long variable instead of Integer to overcome this error.</p>
+<h5>Solution</h5>
+<p>Here's the solution of the problem. This code does not throw any error.</p>
+<p><pre>Dim var As Long
+var = 98768787</pre></p>
+
+<h4>Assigning large property values </h4>
+<p>Overflow error results when you’re assigning a larger property value than it can accept.</p>
+<h5>Example</h5>
+<p>This throws an overflow error.</p>
+<p><pre>Text1.MaxLength = 999999999999</pre></p>
+<p>The MaxLength property of the TextBox control sets the maximum number of characters that can be entered in the textbox. This property accepts only Long values. So you need to assign a value within the Long range to fix the problem.</p>
+
+<h4>Range of a datatype </h4>
+<p>The overflow error occurs when you’re using integer constant values in an expression but the result outgrows the maximum range of an Integer.</p>
+<h5>Example</h5>
+<p>Overflow error occurs here.</p>
+<p><pre>Dim myResult As Long
+myResult=878*8787</pre></p>
+<p>Both the numeric constants 878 and 8787 are within the range of Integer, but the multiplication result of them are larger than an Integer. So you first have to convert the whole expression or either of the numeric constants into Long as the following example does.</p>
+<p>For information about data type conversions, see <a href="https://www.fortypoundhead.com/showcontent.asp?artid=24243" alt="data type conversions" title="data type conversions">this lesson</a> in the tutorial.</p>
+
+<h5>Solution</h5>
+<p><pre>Dim myResult As Long
+myResult=CLng(878*8787)</pre></p>
+<p>Or</p>
+<p><pre>myResult=CLng(878) * 8787</pre></p>
+<p>Or</p>
+<p><pre>myResult=878*CLng(8787)</pre></p>
+<p>Or</p>
+<p><pre>myResult=878 * 8787&</pre></p>
+
+
+<h4>Overflow error caused by Mod operator</h4>
+<p>You face an overflow error if the operands of the Mod operator are larger than Long values, that means, when the operand outgrows the range -2,147,483,648 to 2,147,483,647.</p>
+<p>If you'd like to know more about data type operators, see <a href="https://www.fortypoundhead.com/showcontent.asp?artid=24236" alt="Operators and Expressions" title="Operators and Expressions">this lesson</a> in the tutorial.</p>
+
+<h5>Example</h5>
+<p>This code throws an overflow error.</p>
+<p><pre>Dim d As Double
+d = 9999999999# Mod 2</pre></p>
+
+<h5>Solution</h5>
+<p>Writing a function that performs mod operation on larger numbers solves this problem. So you can write your own function, and use it in your program. This is the solution.</p>
+<p>How to write your own functions will be covered later in this tutorial.</p>
+
+<h4>Overflow error caused by the Integer Division operator(“\”)</h4>
+<h5>Example</h5>
+<p><pre>Dim d As Double
+d = 7657887688# \ 4</pre></p>
+<h5>Solution</h5>
+<p>In this case also you can write your own function that will perform on larger values. So instead of using the inbuilt '\' operator, you can then use your custom operator function.</p>
+<p>Finally I want to recommend a few things. If you’re working with very large values, I suggest you to take Double data type, and Long data type. Double has the higher range than Long. The Decimal data type is also helpful for larger numbers.</p>

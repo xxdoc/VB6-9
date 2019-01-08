@@ -1,0 +1,80 @@
+VB6 Lesson 7: Variable Scopes
+visual,basic,vb6,visualbasic,tutorial,basic,beginner,Event,Variables,Data,Types,scopes
+<p>This lesson will cover scoping and lifetime of variables in procedures and modules.</p>
+
+<h3>What is scope?</h3>
+<p>Scope of a variable determines which part of the code can access the variable.  A variable is declared in general declaration section of a module to make it available to all the procedures in the module.</p>
+<p>There are two levels in which you can define variables:</p>
+<ul><li>Procedure level</li>
+<li>Module Level</li></ul>
+<h4>Example</h4>
+<p>The following block of code is a procedure. </p>
+<pre>Private Sub Command1_Click()
+    Dim num As Integer
+    num = 45
+    Print num
+End Sub</pre>
+<p>'Command1_Click()' is the procedure name. Here 'num' is a procedure-level variable. The value of the variable is destroyed when the procedure ends.</p>
+<p>'End Sub' indicates the end of the event procedure.</p>
+<h3>What is a procedure? </h3>
+<p>Procedure is a block of code that is executed as a unit.</p>
+<h4>Types of procedure </h4>
+<p>There are three types of procedures.</p>
+<ol><li>Sub procedure</li>
+<li>Function procedure</li>
+<li>property procedure</li></ol>
+<p>Sub procedures are of two types:</p>
+<ol><li>General procedure</li>
+<li>Event procedure</li></ol>
+<h3>Modules</h3>
+<p>Visual Basic uses modules. The three module types are:</p>
+<ol><li>Form Modules</li>
+<li>Standard Modules</li>
+<li>Class Modules</li></ol>
+<h4>Form Module</h4>
+<p>Combination of procedures in a form is referred to as form module.</p>
+<h4>Standard Module:  (.bas extension)</h4>
+<p>Go to <pre>Menu -> Project -> add module</pre> to add a module to your application. This type of module is used for a common code to be executed in several forms or all forms.</p>
+<div class="info">
+<h3>QuickHint:</h3>
+<p>Form module is used for the execution of a common code repeatedly only in that form. But standard modules can be used for the repeated execution of a common code in all forms.</p>
+</div>
+<h4>Class Module (.cls extension) </h4>
+<p>Class module is used for object oriented programming.</p>
+<p>Here procedures and modules have been discussed very briefly. A complete chapter is dedicated on these topics.</p>
+<h3>Procedure Level Variable or Local Variable</h3>
+<p>Local variables are of two types - Dynamic local variable and Static local variable. </p>
+<h4>Dynamic local variable</h4>
+<p>A Dynamic local variable is declared inside a procedure using the dim keyword. Local variables are only available to the procedure in which they are declared. Other parts of the code are unaware of its existence. Values of the variables declared using the dim keyword in a procedure exist only within the procedure.</p>
+<h5>Example</h5>
+<p><pre>Private Sub Command1_Click()
+    Dim num As Integer  'This is a dynamic local variable
+End Sub</pre></p>
+<h4>Static Variable</h4>
+<p>Static variable is a procedure level variable. </p>
+<h5>Syntax</h5>
+<p><pre>static variable as [type]</pre></p>
+<h5>Example</h5>
+<p><pre>static m as integer</pre></p>
+<p>Static variables are declared inside a procedure and it retains its value even when a procedure ends but the scope is the procedure itself.</p>
+<h3>Module level variable</h3>
+<p>By default, a module level variable is accessible from all the procedures in the module but not from other modules. A module level variable is declared in the Declarations section, at the top of the module using the Dim or Private keyword. There is no difference between Dim and Private at the module level.</p>
+<h4>Example</h4>
+<p><pre>'in the Declarations Section
+Private s As String</pre></p>
+<h3>Public Variable or Global variable</h3>
+<p>To make a variable accessible to all the modules or throughout the application, declare it with the Public keyword in the Declarations section of a module. Then the value of the variable becomes available to all the procedures of your application.</p>
+<div class="info">
+<h3>QuickHint:</h3>
+<p>You cannot declare a public variable inside a procedure, public variables are declared only within the Declarations section of a module.</p>
+</div>
+<h4>Example</h4>
+<p><pre>'Form1
+'in the form's declaration section
+Public n As Integer</pre></p>
+<p><pre>'Form2
+'To access from another form
+msgbox Form1.n</pre></p>
+<p><pre>'To access a global variable declared in a .BAS module
+msgbox Module1.n</pre></p>
+<p>The concept of scope and lifetime of a variable is very important. When you will learn a bit more about vb coding, you will understand much in this respect.</p>

@@ -1,0 +1,105 @@
+VB6 Tutorial 48: Date and Time Functions
+
+<p>There are many useful functions for the date-time operations in VB6. Visual Basic gives you enough power for handling the date and time. Here you’ll learn about those functions in brief.</p>
+
+<p>This post will include the functions that are defined in the DateTime module of the VBA library. Search "DateTime" in Object Browser.</p>
+<h3>Weekday</h3>
+<p>The weekday function returns the day of the week. It returns a number representing the day.</p>
+<h4>Syntax</h4> 
+<p><pre>Variable  =  weekday(Date, [FirstDayOfWeek])</pre></p>
+<p>This function takes two arguments, one is the optional. You need to pass a date string to this function, and the first day of week which is optional is set to vbSunday by default.</p>
+<p>The constant values of FirstDayOfWeek paramenter are as follows:</p>
+<ul><li>vbSunday</li>
+<li>vbMonday</li>
+<li>vbTuesday</li>
+<li>vbWednesday</li>
+<li>vbThursday</li>
+<li>vbFriday</li>
+<li>vbSaturday</li>
+<li>vbUseSystemDayOfWeek</li></ul>
+<h4>Example</h4>
+<p><pre>Print Weekday("1/4/2014")</pre></p>
+<h4>Output</h4> 
+<p>7</p>
+<h3>Year</h3>
+<p>The year function returns the year from the date.</p>
+<h4>Example</h4>
+<p><pre>Print Year("1/4/2014")</pre></p>
+<h4>Output</h4> 
+<p>2014</p>
+<h3>Month</h3>
+<p>The month function returns the month of the year.</p>
+<h4>Example</h4>
+<p><pre>Dim m As Integer
+m = Month("27 / 3 / 2013")
+MsgBox m</pre></p>
+<h4>Output</h4> 
+<p>3</p>
+<h3>DateValue</h3>
+<p>The DateValue function returns the date part from a date/time value.</p>
+<h4>Example</h4>
+<p><pre>Dim dt As Date
+dt = DateValue(Now)
+Print dt</pre></p>
+<h4>Output</h4> 
+<p>1/4/2014</p>
+<h3>TimeValue</h3>
+<p>Returns the time part from a date/time value.</p>
+<h4>Example</h4>
+<p><pre>Dim dt As Date
+dt = TimeValue(Now)
+Print dt</pre></p>
+<h4>Output</h4> 
+<p>12:51:25 PM</p>
+<h3>Day</h3>
+<p>Returns the day part from a date</p>
+<h4>Example</h4>
+<p><pre>Dt = Day(Now)</pre></p>
+<h3>Hour</h3>
+<p>Returns the hour of the day.</p>
+<h4>Example</h4>
+<p><pre>Print Hour(Now)</pre></p>
+<h3>Minute</h3>
+<p>Returns the minute of the hour.</p>
+<h4>Example</h4>
+<p><pre>Print Minute(Now)</pre></p>
+<h3>Second</h3>
+<p>Returns the second of the minute.</p>
+<h4>Example</h4>
+<p><pre>Print Second(Now)</pre></p>
+<h3>DatePart</h3>
+<p>Returns a specific part from a date.</p>
+<h4>Syntax</h4> 
+<p><pre>DatePart(Interval, Date, [FirstDayOfWeek], [FirstWeekOfYear])</pre></p>
+<p>The interval parameter is the interval part of a date you want. Pass a date value through the Date parameter. FirstDayOfWeek and FirstWeekOfYear are optional parameters, the values of which are vbSunday and vbFirstJan1</p>
+<h4>Example</h4>
+<p><pre>Print "year = " & DatePart("yyyy", "4/1/2014")
+Print "month = " & DatePart("m", Now)
+Print "day = " & DatePart("d", Now)
+Print "week = " & DatePart("ww", Now)
+Print "hour = " & DatePart("h", Now)
+Print "minute = " & DatePart("n", Now)
+Print "second = " & DatePart("s", Now)
+Print "weekday = " & DatePart("y", Now)</pre></p>
+<p>The interval values can be:</p>
+<ul><li>"yyyy"-Year</li>
+<li>"m"- Month</li>
+<li>"d"-Day</li>
+<li>"ww"-Week</li>
+<li>"h"-Hour,</li>
+<li>"n"-Minute</li>
+<li>"s"-Second</li>
+<li>"y"-weekday</li></ul>
+<h3>DateSerial</h3>
+<p>Returns a Date for a specific year, month and day.</p>
+<h4>Example</h4>
+<p><pre>Print DateSerial(2014, 1, 4)</pre></p>
+<h3>TimeSerial</h3>
+<p>Returns a time for a specific hour, minute and second.</p>
+<h4>Example</h4>
+<p><pre>Print TimeSerial(13, 15, 55)</pre></p>
+<h3>DateDiff</h3>
+<p>Returns the number of time intervals between two dates.</p>
+<h4>Example</h4>
+<p><pre>dt = DateDiff("d", "5 / 5 / 1990", "26 / 4 / 2013")</pre></p>
+<p>The first argument is the interval which can have the value among the interval constants mentioned above.</p>

@@ -1,0 +1,24 @@
+VB6 Tutorial 13: Command Button Control
+
+<p>You are going to learn about the command button control in this lesson. The command button control is a very common one. You need it every now and then in your program. So lets have a look at some properties including a run-time property. </p>
+
+<h3>Properties of the Command Button</h3>
+<ul><li><b>Cancel:</b> Indicates whether a command button is the cancel button on the form. That means, if you press ESC key from keyboard, the CommandButton will be fired if the 'Cancel' property is set to true.</li>
+<li><b>Default:</b> Indicates whether a command button is the default button on the form. That means, if you press ENTER key from keyboard, the CommandButton will be fired if the 'Default' property is set to true.</li>
+<li><b>MouseIcon:</b> Sets a custom mouse icon.</li>
+<li><b>MousePointer:</b> Sets the type of mouse pointer that will be shown when the mouse pointer is over the button.</li>
+<li><b>Picture:</b> Sets an image to be displayed when the 'style' property is set to 1.</li></ul>
+<h3>Run-time property of CommandButton</h3>
+<h4>Value</h4>
+The value property sets or returns the state of the control. That means , value is true if the CommandButton is pressed. This property is useful for programmatically clicking a button. 
+Set the Name properties to cmdButton1 and cmdButton2. The default Name properties are Command1 and Command2.
+<h4>Example</h4>
+<p><pre>Private Sub cmdButton1_Click()
+    Print "Hello"
+End Sub
+
+Private Sub cmdButton2_Click()
+    cmdButton1.Value = True
+End Sub</pre></p>
+<p>When you click on Button2, Button1 is clicked programmatically , then it prints "Hello".</p>
+

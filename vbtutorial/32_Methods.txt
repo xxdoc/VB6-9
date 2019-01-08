@@ -1,0 +1,50 @@
+<p>This lesson is about some important and common methods in Visual Basic 6. There is a large number of built-in methods in VB6. This section describes the methods that you'll use most frequently in your program.</p>
+
+<h3>What is a method?</h3>
+<p>A method is a built-in function that works with an object. A method has no meaning without its object. But this is very important to note that a method is not a special thing in VB6 but this is just a function, a block of code, which is associated with an object. The method causes the object to perform a specific task. See the following examples:</p>
+<h4>Example</h4>
+<p><pre>Form1.Hide</pre></p>
+The Hide method hides the form Form1 without unloading from memory. So a method performs an action for a particular object.</p>
+<h4>Example</h4>
+<p><pre>'In Form1 
+Cls                 
+Text1.SetFocus</pre></p>
+<p>The Cls method clears the object, generally the form and PictureBox object. In the above code, the method Cls is written without any object. But I said before that it has no meaning without an object. This is because, in this example, Cls means Form1.Cls. </p>
+<p>When you're coding in the form module, you can omit the form name while invoking a form's method.  </p>
+<p>In the above code, SetFocus is a method that moves the focus to TextBox. Here also the method causes the object to do something. There are so many methods in Visual Basic.</p>
+<p>So now have a look at some of the methods discussed below.</p>
+<h3>Print </h3>
+<p>The Print method prints something on the object, generally on form and PictureBox.</p>
+<h4>Example</h4>
+<p><pre>Form1.Print "Your text here"</pre></p>
+<p>Or</p>
+<p><pre>Print "Your text here"
+Picture1.print "Your text here"</pre></p>
+<p>Here Picture1 is the PictureBox control.</p>
+<h3>Move </h3>
+<p>The Move method moves an object.</p>
+<h4>Syntax</h4>
+<p><pre>Object.Move Left, [Top], [Width], [Height]</pre></p>
+<p>Note: The parameters enclosed in square brackets "[ ]" are always optional. Do not type the brackets in your code.</p>
+<h4>Example</h4>
+<p><pre>Form1.Move 20, 50, 2000, 2000</pre></p>
+<p>Download sample program: Move Example</p>
+<h3>ZOrder </h3>
+<p>When vb controls are overlapped, the ZOrder method sets the position of the control. You can position the control in front of or behind other controls. To position the control in front of other controls, simply write the method without any argument. To position it behind other controls, pass 1 as an argument.</p>
+<h4>Example</h4> 
+<p><pre>Text1.ZOrder 1  'moves it behind other controls
+Text1.ZOrder     'moves it to the front</pre></p>
+<h3>Cls </h3>
+<p>The Cls method clears the form or PictureBox. But it does not mean that it will clear anything on the form or PictureBox. The Cls method clears the contents that are created or drawn by the graphic methods such as Print, Circle etc.</p>
+<h4>Example</h4>
+<p><pre>Print "hello"
+Picture1.Print "welcome"
+Picture1.Cls
+Form1.Cls            'or Cls</pre></p>
+<p>Here Picture1 is the PictureBox. This program will not print anything as Cls method is executed after printing a text.</p>
+<h3>Show </h3>
+<p>The Show method is generally used with multiple forms. It shows an object, a form.</p>
+<h4>Example</h4>
+<p><pre>Form2.Show</pre></p>
+<h3>Refresh</h3>
+<p>The Refresh method repaints or redraws an object completely. You can immediately update the content of a control using the Refresh method. </p>

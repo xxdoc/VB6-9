@@ -1,0 +1,35 @@
+VB6 TUtorial 34: Handy Numeric functions
+
+<p>In this lesson, we'll take a look at three numeric functions: SQR, INT, and Round. In a later lesson, we'll take a look at more numeric functions.</p>
+
+<h3>The Sqr function</h3>
+<p>The Sqr function returns the square root of a number. This function takes a Double type argument and returns a Double implying that you can work with large numbers using the Sqr function.</p>
+<h4>Example</h4> 
+<p><pre>Print Sqr(9)</pre></p>
+<p>Output: 3</p>
+<h3>The Int function</h3>
+<p>The Int function returns the greatest integer less than or equal to the number. It discards the decimal part of a number. This function greatly helps in truncating the decimal part of a number. But be aware that in case of a negative decimal number, it returns a rounded up value, resulting in an increment of integer part as it's shown in example 3 below.</p>
+<h4>Example</h4>
+<p><pre>Print Int(2.9)</pre></p>
+<p>Output: 2</p>
+<h4>Example</h4>
+<p><pre>Print Int(5)</pre></p>
+<p>Output: 5</p>
+<h4>Example 3</h4>
+<p><pre>Print Int(-5.8)</pre></p>
+<p>Output: -6</p>
+<h3>The Round function</h3>
+<p>The Round function rounds a numeric value.</p>
+<h4>Syntax</h4>
+<p><pre>Round(Number, [no. of digits after decimal]</pre></p>
+<p>If the second parameter is omitted, the number is rounded to a whole number. </p>
+<h4>Example</h4>
+<p><pre>Print Round(5.8)</p></pre></p>
+<p>Output: 6
+<h4>Example</h4>
+<p><pre>Print Round(5.8, 1)</pre></p>
+<p>Output: 5</p>
+<h4>Example</h4>
+<p><pre>Print Round(5.4568, 2)</pre></p>
+<p>Output: 5.46</p>
+<p>Later in the series, we'll take a look at more numeric functions.</p>

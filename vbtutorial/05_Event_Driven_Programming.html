@@ -1,0 +1,27 @@
+VB6 Lesson 5: Event Driven Programming
+
+visual,basic,vb6,visualbasic,tutorial,basic,beginner,Event,Driven,programming
+
+<p>Visual Basic is an event driven programming language. Before proceeding to the next chapter, it is very important to have a good concept of event driven programming.</p>
+<p>The common events are Click, DblClick, Load, MouseMove, MouseDown, MouseUp, KeyPress, KeyUp, KeyDown, GotFocus, LostFocus etc.</p>
+<p>When the user clicks , presses key or moves the mouse, the particular block of code of the corresponding event procedure is executed. Then the program behaves in a certain way. This is event driven programming. When you fire an event, the code in the event procedure is executed, and then visual basic does what the code in the event procedure instructs to do. For example, in the first sample program, when you click the Print button, click event is fired. Then the code in the click event procedure gets executed. The code instructs to print a text on the form. After that you see a text printed on the form. This is the concept of event driven programming. That means , the code is not executed from top to bottom but it works when the corresponding event procedure is invoked.</p>
+
+<h3>Example</h3>
+
+<p>Write the following code in the DblClick event procedure of the form.</p>
+
+<p><pre>Private Sub Form_DblClick()
+    Print "You have double clicked" 
+End Sub</pre></p>
+
+<p>When you double-click on the form, the DblClick event procedure of the Form object is invoked and the code in the DblClick event procedure is executed. As a result, the code instructs to print a text on the form.</p>
+
+<p><img src="https://imgur.com/H45ABx8.png" alt="event execution" title="event execution" /></p>
+
+<p>There are three sample projects attached to this post, up in the top section. Give them a try, and experiment with them a bit.</p>
+
+<div class="info">
+<h3>QuickHint:</h3>
+<p>Sample programs and a detailed explanation of other events are given in the appropriate lessons.</p>
+</div>
+<p>Later in this series, there will be a lesson about to how to name a control, a very important programming guide for use with any computer language.</p>

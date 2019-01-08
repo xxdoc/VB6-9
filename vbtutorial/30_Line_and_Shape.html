@@ -1,0 +1,25 @@
+VB6 Tutorial 30: Lines and Shapes
+
+<p>Line and shape are the simplest controls in Visual Basic 6 IDE that do not raise events. They are only used for designing the program interface.</p>
+
+<p>You can enhance the graphical user interface (GUI) of your application using these two controls. The knowledge of using them appropriately will greatly improve your software. You can easily learn about the properties of Lines and shape. Just experiment!</p>
+<h3>The Line control</h3>
+<p>Line is used to draw lines.</p>
+<p>Some properties of the Line control are:</p>
+<ul><li><b>BorderColor:</b> The BorderColor property sets the Line color. </li>
+<li><b>BorderStyle:</b> The BorderStyle property sets the style of the line like solid, dash, dot and other styles.</li>
+<li><b>BorderWidth:</b> The BorderWidth property sets the line width.</li>
+<li><b>DrawMode:</b> The DrawMode property has several symbolic constant values or named constant values that determine the appearance of the line control.</li></ul>
+<h3>The Line method</h3>
+<p>You can even draw a line from your code. The Line method does the job. </p>
+Line (x1, y1)-(x2, y2), color
+<h4>Example</h4>
+<p>This example draws a line of 5 twips width.</p>
+<p><pre>DrawWidth = 5
+Line (0, 0)-(500, 600), vbRed</pre></p>
+<p>You need to type the minus ("-") sign between the two points.</p>
+<h3>Shape </h3>
+<p>Shape is used to draw different kinds of shapes. The shapes that you can draw using this control are rectangle, square, oval, circle, rounded rectangle and rounded square.</p>
+<p>Shape control also has the same properties as the Line control plus some other simple properties such as BackColor that sets the background color, FillStyle that sets the filling style of the shape and FillColor that sets the color filling the shape.</p>
+<p>Different shapes can be drawn from the code using some methods which are out of the scope of this lesson. They will be discussed later.</p>
+<p>See the attached sample program for an example of how you can use it this control on your form.</p>

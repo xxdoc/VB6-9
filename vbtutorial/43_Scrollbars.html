@@ -1,0 +1,29 @@
+VB6 Tutorial 43: Scrollbars
+
+<p>In this lesson, you'll learn the basics of how to work with a scrollbar.</p>
+
+<p>You have seen scroll bars in most of the Windows applications. A scroll bar is a very important element of a software. When you'll work on a software project in VB6, you'll need these controls if you have to scroll down or scroll up a page.</p>
+<p>The scrollbar actually comes in two flavors or styles: vertical or horizontal. Both styles have the same properties and events.  The only difference is the appearance of each on the screen.</p>
+<p>All items discussed here apply to both styles of scrollbar.</p>
+<h3>Useful properties</h3>
+<p>The main properties of both the scroll bars are Min, Max, SmallChange, LargeChange and Value. </p>
+<h3>Vertical scroll bar</h3>
+<p>Here is the anatomy of a typical scroll bar:</p>
+<p><img src="https://imgur.com/T2TkCsd.png" alt="Anatomy of a toolbar" title="Anotomy of a toolbar" /></p>
+<h3>Properties</h3>
+<p>There are five basic properties that you will likely work with the most. We'll touch on each of them here.</p>
+<h4>Value</h4>
+<p>The Value property returns the scroll bar position's value. Each position of the thumb has a value. The Value changes when you click on one of the arrow buttons or when you move the thumb by dragging it.</p>
+<h4>Min</h4>
+<p>The Min property sets/returns the minimum value of a scroll bar position.</p>
+<h4>Max</h4>
+<p>The Max property sets/returns the maximum value of a scroll bar position.</p>
+<h4>SmallChange</h4>
+<p>The SmallChange property sets/returns the amount of change to Value property in a scroll bar when the user clicks on a scroll arrow button./<p>
+<h4>LargeChange</h4>
+<p>The LargeChange property sets/returns the amount of change to Value property in a scroll bar when the user clicks on the scroll bar area.</p>
+<h3>Change Event</h3>
+<p>Not a property, the Change event fires when an arrow button or the scroll bar area is clicked or after the thumb has been dragged. The Scroll event is raised when the thumb is being dragged.</p>
+<p>There is an example project attached to this lesson, a simple length converter for inches and centimeters. Check it out. </p>
+<div class="info"><h3>Challenge</h3><p>Using the example project, see if you can add other units of measurement, such as gallons to liters, or perhaps miles to kilometers.</p></div>
+<div class="info"><h3>QuickHint:</h3><p>In some cases, you do not need to use scroll bars as many controls in VB6 provide a scroll bar with them. For example, the TextBox control has a scroll bar with it, and it becomes enabled when you set the Multi-Line property of the TextBox control to True.</p></div>

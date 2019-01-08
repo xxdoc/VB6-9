@@ -1,0 +1,61 @@
+VB6 Tutorial 67: Error Handling
+
+<p>In this lesson, I'll talk about error handling in Visual Basic 6. I will discuss, in brief, how you can handle errors in your Visual Basic program. </p>
+
+<p>This lesson will not cover error handling in-depth, as it is targeted at beginners, and will help to get a solid, basic understanding of error handling.</p>
+
+<h3>What happens when error occurs?</h3>
+<p>When an error is encountered in your program, the program stops running showing an error message in a dialog box. So this is going to be a real problem if you cannot find the bug. </p>
+<p>For example, say, you have developed a software. And also say, there's a bug, an error. Then while using your software, the end-user will face the problem. The program will stop running reporting an error. So you have to find a solution to this problem.</p>
+
+<h3>How to deal with bugs?</h3>
+<p>So as I said you have to find a solution to this problem, there are some options at your hand. You either have to programmatically ignore the error or display a warning message to the end-user or find the bug and debug your program.</p>
+
+<h3>Error handling statements</h3>
+<p>Some useful error handling statements are there in Visual Basic 6 which help you ignore, bypass or handle errors in your program. Three such statements are helpful. They are as follows:</p>
+
+<ul><li><b>On Error Resume Next statement:</b> If any error occurs, it is ignored, and the control goes to the next statement.</li>
+<li><b>On Error Goto label:</b> If any error occurs, the control jumps to a label.</li>
+<li><b>On Error Goto 0:</b> This statement cancels the effect of  'On Error Resume Next' and 'On Error Goto label' statements. </li></ul>
+
+<h3>On Error Resume Next</h3>
+<p>If Visual Basic encounters an error, it ignores the error. Then the control goes to the next statement. More precisely, Visual Basic causes a jump to the next statement. And Visual Basic executes the statements ignoring the statement where the error is found. Consider this example.</p>
+
+<h4>Example</h4>
+<p><pre>On Error Resume Next
+a = 6 / 0
+Print "hello"</pre></p>
+
+<h3>On Error Goto label</h3>
+<p>If Visual Basic encounters an error in a statement, the On Error Goto label statement tells Visual Basic to jump to the named label. Thus the control jumps to the named label. Then the code following the named label is executed. Consider the following example.</p>
+
+<h4>Example</h4>
+<p><pre>On Error GoTo A
+A = 6 / 0
+
+A:
+Print "hello"
+Print "Welcome"</pre></p>
+
+<h3>On Error Goto 0</h3>
+<p>On Error Goto 0 statement tells Visual Basic to cancel any effect of 'On Error Resume Next' and 'On Error Goto label' statements. So this statement cancels the effect of error handling in your program.</p>
+
+<h3>The Err function</h3>
+<p>The Err function can help you handle the error using the error code. For example, you can display a warning message to the end-user. The following example clarifies this.</p>
+
+<h4>Example</h4>
+<p><pre>On Error Resume Next
+b = 88 / 0
+
+If Err = 11 Then
+    MsgBox "Error: Division by zero!"
+End If</pre></p>
+
+<h4>Example</h4>
+<p><pre>On Error GoTo Label5
+b = 88 / 0
+
+Label5:
+If Err = 11 Then
+    MsgBox "Error: Division by zero!"
+End If</pre></p>

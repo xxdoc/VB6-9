@@ -1,0 +1,44 @@
+VB6 Lesson 8: Operators & Expressions
+
+visual,basic,vb6,visualbasic,tutorial,basic,beginner,Operators,Expressions
+
+<p>An operator in a programming language is a symbol that tells the compiler or interpreter to perform specific mathematical, relational or logical operation and produce final result.</p>
+
+<table><tbody> <tr><th>Operators</th><th>Meanings</th><th>Operators</th><th>Meanings</th></tr> <tr><td>+</td><td>Addition</td><td>&gt;=</td><td>Greater than or equal to</td></tr> <tr><td>-</td><td>Subtraction</td><td>&lt;&gt;</td><td>Not equal to</td></tr> <tr><td>*</td><td>Multiplication</td><td>=</td><td>equal to</td></tr> <tr><td>/</td><td>Division</td><td>&amp;</td><td>String Concatenation</td></tr> <tr><td>\</td><td>Integer Division</td><td>And</td><td>Logical And</td></tr> <tr><td>Mod</td><td>Modulo Division</td><td>Not</td><td>Logical Not</td></tr> <tr><td>&lt;</td><td>Less than</td><td>Or</td><td>Logical Or</td></tr> <tr><td>&gt;</td><td>Greater than</td><td>Xor</td><td>Logical Xor</td></tr> <tr><td>&lt;=</td><td>Less than or equal to</td><td>^</td><td>Power</td></tr> </tbody></table> 
+<h3>Assigning values to variables : '=' operator</h3>
+<p>The Assignment operator (=) is used to assign a value or an expression to a variable. When you assign a value, its not the same as the Equal to operation, but the value is copied to a variable. Besides assigning values and expressions, you can assign a variable to a variable also.</p>
+<h4>Example</h4>
+<p><pre>x=a+b</pre></p>
+<p>'=' , '+' are the operators.</p>
+<p>x,a,b are the operands and 'a+b' is an expression. x=a+b is a statement.</p>
+<p>The following program will print 20. </p>
+<p><pre>Private Sub cmdDisplay_Click()
+    Dim num As Integer, r As Integer, n As Integer
+    n = 10
+    r = n ^ 2      'n to the power 2
+    num = n + r / n
+    Print num
+End Sub</pre></p>
+<p>Output : 20</p>
+<h3>The Integer Division Operator ('\')</h3>
+<p>The Integer Division operator('\') eliminates the decimal part after division.</p>
+<h4>Example</h4>
+<p><pre>Private Sub cmdDivision_Click()
+    Dim a As Double, b As Double, c As Double
+    a = 12: b = 5
+    c = a \ b
+    Print c
+End Sub</pre></p>
+<p>Output : 2</p>
+<h3>The 'Mod' operator</h3>
+<p>The Mod operator is used to calculate remainder.</p>
+<p>Example :</p>
+<p><pre>Private Sub cmdShow_Click()
+    Dim remainder As Integer, num As Integer
+    num = 21
+    remainder = num Mod 10
+    Print remainder
+End Sub</pre></p>
+<p>Output : 1</p>
+<h3>Boolean Operators : And, Or, Not, Xor</h3>
+<p>To learn about Boolean operators, you first need to have the concept of If-Else condition. So Boolean operators are explained in a later lesson.</p>
