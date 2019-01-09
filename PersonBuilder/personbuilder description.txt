@@ -1,0 +1,88 @@
+Building Random People
+
+<p>Yes, building people. This program, meant to demonstrate the use of a few different methods, builds random person data (Address, phone, etc).</p>
+<p>I didn't build this for someone to build false identities for nefarious purposes, although it could probably be used for that. Nay, I built this to demonstrate the use of a few different concepts in Visual Basic 6 (VB6):</p>
+
+<ul><li>Reading large text files from disk</li>
+<li>Storing data in arrays</li>
+<li>Choosing random records from an array</li>
+<li>String concatenation</li>
+<li>Parsing multi-field array elements</li>
+</ul>
+
+<p>Some of these items might seem like basic knowledge to some folks, but remember, there is a starting point for everyone, and there are people out there that might be trying to learn this stuff.</p>
+
+<h3>Details, details</h3>
+
+<p>The program does one thing, and one thing only: generate fake people. It simply creates four pieces of information:</p>
+
+<ul><li>Name</li>
+<li>Gender</li>
+<li>Phone Number</li>
+<li>Address</li> </ul>
+
+<p>PersonBuilder has been built in such a way that the generated data "matches". This means it won't assign a female name to a male, or vice versa.  Also, the area code matches the address information.</p>
+<p>To build this data, I've used six files, which I have included in the archive. The file information is shown below.</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Filename</th>
+			<th>Record Count</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>PB-Surnames.txt</td>
+			<td>88,798</td>
+		</tr>
+		<tr>
+			<td>PB-Male.txt</td>
+			<td>1,219</td>
+		</tr>
+		<tr>
+			<td>PB-Female.txt</td>
+			<td>4,275</td>
+		</tr>		
+		<tr>
+			<td>PB-Locations.txt</td>
+			<td>42,009</td>
+		</tr>		
+		<tr>
+			<td>PB-Streets.txt</td>
+			<td>96</td>
+		</tr>		
+		<tr>
+			<td>PB-StreetTypes.txt</td>
+			<td>6</td>
+		</tr>		
+		<tr>
+			<td colspan=2>Total Records: 136,403</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>One interesting thing to note is the structure of the PB-Locations file: The file is tab-delimited. This allows us to store related data on a single line of the file, given that we can extract the data from the line. While there may only be 42,009 records in the file, there are 336,072 pieces of extractable data. Cool, eh?  Further, it allows for easy import into a database or spreadsheet, for use in other applications.</p>
+<p>While perusing this code, you might notice that I've used the currency variable type on a few of the arrays and counters.  I could have used the Long variable type, but I wanted to be able to go beyond the limitations of the type. </p>
+<p>Long integers in VB6 are limited to 2,147,483,468, both to the right and left of the zero. The currency data type increases that by a factor of 10,000, to 922,337,000,000,000 items.  I don't think I'll ever need 922 trillion names, but you never know. ;)  The tradeoff is that the currency datatype uses 8 bytes of memory, compared to 4 bytes used by a long integer data type.</p>
+<p>Anyway, I hope someone finds this useful. As always, hit me up in comments below, or in the forums, if you have any questions comments about this code.</p>
+
+
+
+ 
+
+		
+Surnames - 88,798
+Male names - 1,219
+Female names - 4,275
+Locations - 42,009
+Streets - 96
+Street types - 6
+
+Total records: 136,403
+
+336,072
+
+
+
+https://i.imgur.com/1vfRsuR.png
