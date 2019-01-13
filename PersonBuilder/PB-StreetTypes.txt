@@ -1,0 +1,6 @@
+street
+avenue
+road
+lane
+boulevard
+lane
